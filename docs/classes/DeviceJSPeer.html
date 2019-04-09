@@ -1,0 +1,4502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DeviceJSPeer - DeviceJS Client API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="DeviceJS Client API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.1.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/DeviceJSPeer.html">DeviceJSPeer</a></li>
+                                <li><a href="../classes/ResourceSelection.html">ResourceSelection</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>DeviceJSPeer Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/src_core_peer.js.html#l57"><code>src&#x2F;core&#x2F;peer.js:57</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    <p>A DeviceJS peer</p>
+
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_DeviceJSPeer" class="method item">
+    <h3 class="name"><code>DeviceJSPeer</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>serverAddress</code>
+                </li>
+                <li class="arg">
+                        <code>peerOptions</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l57"><code>src&#x2F;core&#x2F;peer.js:57</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">serverAddress</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The IP of the DeviceJS server</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">peerOptions</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The configuration options for this peer</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_addInterfaceType">addInterfaceType</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_addResourceType">addResourceType</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_connect">connect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_connect">connect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_createResourceGroup">createResourceGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_deleteResourceGroup">deleteResourceGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_disconnect">disconnect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_disconnect">disconnect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forgetResource">forgetResource</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getBearerToken">getBearerToken</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getModules">getModules</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getResourceGroup">getResourceGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getResourceState">getResourceState</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getServerAddress">getServerAddress</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getVersions">getVersions</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_joinResourceGroup">joinResourceGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_leaveResourceGroup">leaveResourceGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_listInterfaceTypes">listInterfaceTypes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_listResources">listResources</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_listResourceTypes">listResourceTypes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_publishResourceEvent">publishResourceEvent</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_publishResourceStateChange">publishResourceStateChange</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_registerResource">registerResource</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resource">resource</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_responseToCommand">responseToCommand</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_select">select</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_selectByGroup">selectByGroup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_selectByID">selectByID</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_selectByInterface">selectByInterface</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_selectByType">selectByType</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sendResourceCommand">sendResourceCommand</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setResourceState">setResourceState</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_subscribeToResourceEvent">subscribeToResourceEvent</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_subscribeToResourceState">subscribeToResourceState</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_unregisterResource">unregisterResource</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_unsubscribe">unsubscribe</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_uuid">uuid</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                            <li class="index-item event">
+                                <a href="#event_command">command</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_command">command</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_connect">connect</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_connect">connect</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_disconnect">disconnect</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_disconnect">disconnect</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state change">state change</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state change">state change</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state get">state get</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state get">state get</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state set">state set</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_state set">state set</a>
+
+                            </li>
+                    </ul>
+                </div>
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_addInterfaceType" class="method item">
+    <h3 class="name"><code>addInterfaceType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>schema</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l313"><code>src&#x2F;core&#x2F;peer.js:313</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Add a new interface schema type to the DeviceJS server</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">schema</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>This is an interface type schema object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.addInterfaceType({
+    name: 'MyInterfaceType', // name is a string that is longer than 0 characters
+    version: '0.0.1',        // version is a semantic version string
+    commands: {              // commands is an object whose property names are non-empty strings
+        myCommand1: {
+            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats
+            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format
+        }
+    },
+    state: {
+        myStateProperty1: {
+            readOnly: true,   // readOnly is a boolean value
+            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property
+        }
+    },
+    events: {
+        myEventType: {
+            schema: { type: 'string' }
+        }
+    }
+}).then(function() {
+    // Now MyInterfaceType is known by the system and can be
+    // used resource schemas added with addResourceType
+})
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_addResourceType" class="method item">
+    <h3 class="name"><code>addResourceType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>schema</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l266"><code>src&#x2F;core&#x2F;peer.js:266</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Add a new resource schema type to the DeviceJS server</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">schema</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>This is a resource type schema object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.addInterfaceType({
+    name: 'MyInterfaceType', // name is a string that is longer than 0 characters
+    version: '0.0.1',        // version is a semantic version string
+    commands: {              // commands is an object whose property names are non-empty strings
+        myCommand1: {
+            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats
+            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format
+        }
+    },
+    state: {
+        myStateProperty1: {
+            readOnly: true,   // readOnly is a boolean value
+            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property
+        }
+    },
+    events: {
+        myEventType: {
+            schema: { type: 'string' }
+        }
+    }
+}).then(function() {
+     return dev$.addResourceType({
+         name: 'MyResourceType',
+         version: '0.0.1',
+         interfaces: [ 'MyInterfaceType' ]
+     });
+}).then(function() {
+    // Now MyResourceType is known by the system along with
+    // its associated interfaces
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_connect" class="method item">
+    <h3 class="name"><code>connect</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_httpPeer.js.html#l123"><code>src&#x2F;core&#x2F;httpPeer.js:123</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Connect to the DeviceJS server and set up peer</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });
+djsClient.connect().then(function() {
+    // successful connection. do more operations here
+}, function(error) {
+    // handle any connection errors here
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_connect" class="method item">
+    <h3 class="name"><code>connect</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l207"><code>src&#x2F;core&#x2F;peer.js:207</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Connect to the DeviceJS server and set up peer</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_createResourceGroup" class="method item">
+    <h3 class="name"><code>createResourceGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceGroupName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l699"><code>src&#x2F;core&#x2F;peer.js:699</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Resources can be organized into a hierarchy of groups
+similar to a directory structure. This creates a resource
+group of a certain name. Resource group names are a
+series of strings delimited by forward slashes. Ex:
+a, a/b/c
+Creating a resource group with parent groups that do
+not yet exist implicitly creates those parent groups.
+Creating a group that already exists has no effect</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceGroupName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the resource group</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.createResourceGroup('A').then(function() {
+    return dev$.createResourceGroup('B');
+}).then(function() {
+    return dev$.createResourceGroup('C');
+}).then(function() {
+    return dev$.createResourceGroup('A/B/C');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: {
+     //             B: {
+     //                 children: {
+     //                     C: {
+     //                         children: { },
+     //                         resources: { }
+     //                     }
+     //                 },
+     //                 resources: { }
+     //             }
+     //         },
+     //         resources: { }
+     //     },
+     //     B: {
+     //         children: { },
+     //         resources: { }
+     //     },
+     //     C: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_deleteResourceGroup" class="method item">
+    <h3 class="name"><code>deleteResourceGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceGroupName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l756"><code>src&#x2F;core&#x2F;peer.js:756</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Deleting a resource group removes all resources from
+that group and recursively deletes all its children</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceGroupName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the resource group</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.createResourceGroup('A').then(function() {
+    return dev$.createResourceGroup('B');
+}).then(function() {
+    return dev$.createResourceGroup('C');
+}).then(function() {
+    return dev$.createResourceGroup('A/B/C');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: {
+     //             B: {
+     //                 children: {
+     //                     C: {
+     //                         children: { },
+     //                         resources: { }
+     //                     }
+     //                 },
+     //                 resources: { }
+     //             }
+     //         },
+     //         resources: { }
+     //     },
+     //     B: {
+     //         children: { },
+     //         resources: { }
+     //     },
+     //     C: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+}).then(function() {
+    return dev$.deleteResourceGroup('A/B');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { }
+     //     },
+     //     B: {
+     //         children: { },
+     //         resources: { }
+     //     },
+     //     C: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_disconnect" class="method item">
+    <h3 class="name"><code>disconnect</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_httpPeer.js.html#l203"><code>src&#x2F;core&#x2F;httpPeer.js:203</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Disconnect from the DeviceJS server. This object will
+emit no further events. connect must be called again in order
+to make requests to the server.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });
+djsClient.connect().then(function() {
+    ...
+    djsClient.disconnect();
+    ...
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_disconnect" class="method item">
+    <h3 class="name"><code>disconnect</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l218"><code>src&#x2F;core&#x2F;peer.js:218</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Disconnect from the DeviceJS server. This object will
+emit no further events. connect must be called again in order
+to make requests to the server.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The success handler accepts no parameter. The failure
+handler accepts a single error object.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_forgetResource" class="method item">
+    <h3 class="name"><code>forgetResource</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l565"><code>src&#x2F;core&#x2F;peer.js:565</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Forgets a resource. Normally resources are added to the index
+after being registered for the first time. This function removes
+the resources from the index and returns the database to a state
+where it has no knowledge of this resource</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getBearerToken" class="method item">
+    <h3 class="name"><code>getBearerToken</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_httpPeer.js.html#l346"><code>src&#x2F;core&#x2F;httpPeer.js:346</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>NodeJS only. Returns the bearer token used by this client.
+This is used by the browser-&gt;nodejs proxy application</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">String</span>:
+                    <p>The bearer token</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getModules" class="method item">
+    <h3 class="name"><code>getModules</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l534"><code>src&#x2F;core&#x2F;peer.js:534</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Lists the status of all installed modules on the server
+including their version and enabled/disabled state</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getResourceGroup" class="method item">
+    <h3 class="name"><code>getResourceGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>groupName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1128"><code>src&#x2F;core&#x2F;peer.js:1128</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns a hierarchy of groups and the resources
+contained within them</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">groupName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>Resolves with a hierarchy of resources</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>return dev$.createResourceGroup('A').then(function() {
+    return dev$.createResourceGroup('B');
+}).then(function() {
+    return dev$.createResourceGroup('C');
+}).then(function() {
+    return dev$.createResourceGroup('A/B/C');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: {
+     //             B: {
+     //                 children: {
+     //                     C: {
+     //                         children: { },
+     //                         resources: { }
+     //                     }
+     //                 },
+     //                 resources: { }
+     //             }
+     //         },
+     //         resources: { }
+     //     },
+     //     B: {
+     //         children: { },
+     //         resources: { }
+     //     },
+     //     C: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+}).then(function() {
+    return dev$.getResourceGroup('A');
+}).then(function(group) {
+     // {
+     //     children: {
+     //         B: {
+     //             children: {
+     //                 C: {
+     //                     children: { },
+     //                     resources: { }
+     //                 }
+     //             },
+     //             resources: { }
+     //         }
+     //     }
+     // }
+}).then(function() {
+    return dev$.getResourceGroup('A/B');
+}).then(function(group) {
+     // {
+     //     children: {
+     //         C: {
+     //             children: { },
+     //             resources: { }
+     //         }
+     //     },
+     //     resources: { }
+     // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_getResourceState" class="method item">
+    <h3 class="name"><code>getResourceState</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+                <li class="arg">
+                        <code>property</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1036"><code>src&#x2F;core&#x2F;peer.js:1036</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Send a request to a get of resources to get the state
+of some property.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the property to get</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>This resolves with the same object format as
+sendResourceCommand. A flag indicates if a response was received
+from the given resources that belonged to the set</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method should be invoked indirectly by using the ResourceSelection#get
+method.
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_getServerAddress" class="method item">
+    <h3 class="name"><code>getServerAddress</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l247"><code>src&#x2F;core&#x2F;peer.js:247</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns the URL of the server that this peer is connected
+to</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">String</span>:
+                    <p>The server address</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>let url = dev$.getServerAddress()
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_getVersions" class="method item">
+    <h3 class="name"><code>getVersions</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l523"><code>src&#x2F;core&#x2F;peer.js:523</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>List the versions of all the installed modules as well as
+the version of DeviceJS that is running on the server.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_joinResourceGroup" class="method item">
+    <h3 class="name"><code>joinResourceGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+                <li class="arg">
+                        <code>resourceGroupName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l826"><code>src&#x2F;core&#x2F;peer.js:826</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Joining a resource to a resource group means
+that this resource is controllable by sending
+requests to that resource group and that any
+events emitted by that resource will be emitted
+to subscribers to this resource group</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The ID of the resource to add to this group</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">resourceGroupName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the resource group to join</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>return dev$.createResourceGroup('A').then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+}).then(function() {
+    // assumes myResource1 is the ID of a known resource
+    return dev$.joinResourceGroup('myResource1', 'A');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { myResource1: { } }
+     //     }
+     // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_leaveResourceGroup" class="method item">
+    <h3 class="name"><code>leaveResourceGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+                <li class="arg">
+                        <code>resourceGroupName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l870"><code>src&#x2F;core&#x2F;peer.js:870</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Unjoins a resource from a resource group.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The ID of the resource to remove from this group</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">resourceGroupName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the resource group to leave</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>return dev$.createResourceGroup('A').then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+}).then(function() {
+    // assumes myResource1 is the ID of a known resource
+    return dev$.joinResourceGroup('myResource1', 'A');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { myResource1: { } }
+     //     }
+     // }
+}).then(function() {
+    return dev$.leaveResourceGroup('myResource1', 'A');
+}).then(function() {
+    return dev$.getResourceGroup();
+}).then(function(group) {
+     // {
+     //     A: {
+     //         children: { },
+     //         resources: { }
+     //     }
+     // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_listInterfaceTypes" class="method item">
+    <h3 class="name"><code>listInterfaceTypes</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l409"><code>src&#x2F;core&#x2F;peer.js:409</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Lists all the interface type schemas</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>Upon success, the promise resolves to an object
+that contains information on all known interface types:</p>
+<p>{
+&quot;InterfaceType1&quot;: {
+&quot;0.0.1&quot;: [InterfaceSchema],
+&quot;0.0.2&quot;: [InterfaceSchema],
+...
+},
+...
+}</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>return dev$.addInterfaceType({
+    name: 'MyInterfaceType1', // name is a string that is longer than 0 characters
+    version: '0.0.1',        // version is a semantic version string
+    commands: {              // commands is an object whose property names are non-empty strings
+        myCommand1: {
+            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats
+            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format
+        }
+    },
+    state: {
+        myStateProperty1: {
+            readOnly: true,   // readOnly is a boolean value
+            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property
+        }
+    },
+    events: {
+        myEventType1: {
+            schema: { type: 'string' }
+        }
+    }
+}).then(function() {
+    return dev$.addInterfaceType({
+        name: 'MyInterfaceType2', // name is a string that is longer than 0 characters
+        version: '0.0.1',        // version is a semantic version string
+        commands: {              // commands is an object whose property names are non-empty strings
+            myCommand2: {
+                arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats
+                returns: { type: 'number' }     // returns is a sub-schema that describes the return value format
+            }
+        },
+        state: {
+            myStateProperty2: {
+                readOnly: true,   // readOnly is a boolean value
+                schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property
+            }
+        },
+        events: {
+            myEventType2: {
+                schema: { type: 'string' }
+            }
+        }
+    });
+}).then(function() {
+      return dev$.listInterfaceTypes();
+}).then(function(interfaceTypes) {
+    // interfaceTypes =
+    // {
+    //     &quot;MyInterfaceType1&quot;: {
+    //         &quot;0.0.1&quot;: {
+    //             ...
+    //         }
+    //     },
+    //     &quot;MyInterfaceType2&quot;: {
+    //         &quot;0.0.1&quot;: {
+    //             ...
+    //         }
+    //     }
+    // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_listResources" class="method item">
+    <h3 class="name"><code>listResources</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1087"><code>src&#x2F;core&#x2F;peer.js:1087</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Enumerates the resources associated with a certain selection</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>Resolves with a set of resources</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.registerResource('myResource1', 'MyResourceType').then(function() {
+    return dev$.registerResource('myResource2', 'MyResourceType');
+}).then(function() {
+    return dev$.registerResource('myResource3', 'MyResourceType');
+}).then(function() {
+    return dev$.listResources('type=&quot;MyResourceType&quot;');
+}).then(function(resources) {
+    // {
+    //     myResource1: {
+    //         reachable: true,
+    //         registered: true,
+    //         type: 'MyResourceType'
+    //     },
+    //     myResource2: {
+    //         reachable: true,
+    //         registered: true,
+    //         type: 'MyResourceType'
+    //     },
+    //     myResource3: {
+    //         reachable: true,
+    //         registered: true,
+    //         type: 'MyResourceType'
+    //     }
+    // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_listResourceTypes" class="method item">
+    <h3 class="name"><code>listResourceTypes</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l354"><code>src&#x2F;core&#x2F;peer.js:354</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Lists all the resource type schemas</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>Upon success, the promise resolves to an object
+that contains information on all known resource types:</p>
+<p>{
+&quot;ResourceType1&quot;: {
+&quot;0.0.1&quot;: [ResourceTypeSchema],
+&quot;0.0.2&quot;: [ResourceTypeSchema],
+...
+},
+...
+}</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>return dev$.addResourceType({
+    name: 'MyResourceType1',
+    version: '0.0.1',
+    interfaces: [ 'MyInterfaceType1' ]
+}).then(function() {
+    return dev$.addResourceType({
+        name: 'MyResourceType2',
+        version: '0.0.1',
+        interfaces: [ 'MyInterfaceType1', 'MyInterfaceType2' ]
+    });
+}).then(function() {
+      return dev$.listResourceTypes();
+}).then(function(resourceTypes) {
+    // resourceTypes =
+    // {
+    //     &quot;MyResourceType1&quot;: {
+    //         &quot;0.0.1&quot;: {
+    //             name: 'MyResourceType1',
+    //             version: '0.0.1',
+    //             interfaces: [ 'MyInterfaceType1' ]
+    //         }
+    //     },
+    //     &quot;MyResourceType2&quot;: {
+    //         &quot;0.0.1&quot;: {
+    //             name: 'MyResourceType2',
+    //             version: '0.0.1',
+    //             interfaces: [ 'MyInterfaceType1', 'MyInterfaceType2' ]
+    //         }
+    //     }
+    // }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_publishResourceEvent" class="method item">
+    <h3 class="name"><code>publishResourceEvent</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+                <li class="arg">
+                        <code>eventType</code>
+                </li>
+                <li class="arg">
+                        <code>eventData</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l669"><code>src&#x2F;core&#x2F;peer.js:669</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Publish a resource event on behalf of a resource that is registered
+to this peer. The DeviceJS server will send this event to all
+relevant subscribers. Special event types include 'reachable',
+and 'unreachable'. Emit these to indicate when a resource is reachable
+or unreachable, for example when losing connectivity to a resource</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The ID of the resource publishing this event</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">eventType</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The event type being published</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">eventData</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The data associated with this event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method should not be used directly, but rather invoked indirectly
+by creating a resource controller (See the DeviceJSPeer#resource method)
+and having the code inside this resource controller call its emit method
+The emit method is overridden for resource controllers and causes this method
+to be invoked in the resource controller's underlying DeviceJSPeer
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_publishResourceStateChange" class="method item">
+    <h3 class="name"><code>publishResourceStateChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l986"><code>src&#x2F;core&#x2F;peer.js:986</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Publish a resource state change event on behalf of
+a resource that is registered to this peer</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The ID of the resource that is publishing
+this event.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the property that has changed</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The new value of the property</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method should never be invoked directly. It is automatically called
+when a resource controller's state setters is called.
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_registerResource" class="method item">
+    <h3 class="name"><code>registerResource</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l501"><code>src&#x2F;core&#x2F;peer.js:501</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Register a resource with this peer. After registering with
+a resource, this peer is sent all control messages and
+requests for that resource.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method is called automatically when a resource controller instance is
+created and its start method is called
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_resource" class="method item">
+    <h3 class="name"><code>resource</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>The</code>
+                </li>
+                <li class="arg">
+                        <code>implementation</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">ResourceController</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1209"><code>src&#x2F;core&#x2F;peer.js:1209</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for creating a new
+ResourceController constructor</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">The</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>resource type name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">implementation</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The api of the resource controller</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">ResourceController</span>:
+                    <p>The new constructor</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var ExampleMotionSensor = dev$.resource('Examples/ExampleMotionSensor', {
+    start: function(options) {
+        var self = this;
+
+        console.log('Start ExampleMotionSensor');
+
+        this._motionSenseInterval = setInterval(function() {
+            self.emit('motion', Math.random());
+        }, 4000);
+    },
+    stop: function() {
+        clearInterval(this._motionSenseInterval);
+    },
+    state: { },
+    commands: { }
+});
+
+var ExampleLight = dev$.resource('Examples/ExampleLight', {
+    start: function(options) {
+        console.log('Start ExampleLight');
+        this._power = 'off';
+        this._brightness = 0.0;
+    },
+    stop: function() {
+    },
+    state: {
+        power: {
+            get: function() {
+                return this._power;
+            },
+            set: function(value) {
+                console.log('SET POWER', value);
+                this._power = value;
+            }
+        },
+        brightness: {
+            get: function() {
+                return this._brightness;
+            },
+            set: function(value) {
+                console.log('SET BRIGHTNESS %d %%', parseInt(this._brightness*100));
+                this._brightness = value;
+            }
+        }
+    },
+    commands: {
+        on: function() {
+            console.log('TURN ON LIGHT');
+            return this.state.power.set('on');
+        },
+        off: function() {
+            console.log('TURN OFF LIGHT');
+            return this.state.power.set('off');
+        }
+    }
+});
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_responseToCommand" class="method item">
+    <h3 class="name"><code>responseToCommand</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>commandID</code>
+                </li>
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+                <li class="arg">
+                        <code>response</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1060"><code>src&#x2F;core&#x2F;peer.js:1060</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>After receiving a command event, a state set event,
+or a state get event the peer must response on behalf
+of a given resource once that resource has fulfilled
+the request.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">commandID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The commandID associated with this
+response</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The resource that is responding</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">response</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The value associated with this response</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method is invoked automatically by the resource controller's code
+when a command returns a promise and that promise resolves or rejects, the command
+returns a non-promise value or the command throws an exception
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_select" class="method item">
+    <h3 class="name"><code>select</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1339"><code>src&#x2F;core&#x2F;peer.js:1339</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Generate a new ResourceSelection
+by selection string</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The selection string
+Selection String Format:
+<predicate>      ::= <term> | <term> 'or' <predicate>
+<term>           ::= <factor> | <factor> 'and' <term>
+<factor>         ::= <property> | '(' <predicate> ')' | 'not' <factor>
+<property>       ::= <property-name> '=' <property-value>
+<property-name>  ::= 'interface' | 'group' | 'type' | 'id'
+<property-value> ::= '<em>' | &quot;([^&quot;\]|\&quot;|\\|\/|\b|\f|\n|\r|\t|(\u([0-9A-F]{4}|([0-9a-f]{4}))))</em>&quot;</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>dev$.select('type=&quot;MyResourceType1&quot;')
+dev$.select('interface=&quot;Switchable&quot;')
+dev$.select('group=&quot;A/B&quot;')
+dev$.select('id=&quot;device123abc&quot;')
+dev$.select('interface=&quot;Switchable&quot; and group=&quot;A/B&quot;')
+dev$.select('interface=&quot;Switchable&quot; or group=&quot;A/B&quot;')
+dev$.select('(type=&quot;MyResourceType1&quot; or group=&quot;A/B&quot;) and interface=&quot;Dimmable&quot;')
+...
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_selectByGroup" class="method item">
+    <h3 class="name"><code>selectByGroup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>group</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1327"><code>src&#x2F;core&#x2F;peer.js:1327</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for generating a new
+ResourceSelection by resource group</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">group</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The resource group name</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_selectByID" class="method item">
+    <h3 class="name"><code>selectByID</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceID</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1291"><code>src&#x2F;core&#x2F;peer.js:1291</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for generating a new
+ResourceSelection by resource ID</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_selectByInterface" class="method item">
+    <h3 class="name"><code>selectByInterface</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceInterface</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1303"><code>src&#x2F;core&#x2F;peer.js:1303</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for generating a new
+ResourceSelection by resource interface</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceInterface</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_selectByType" class="method item">
+    <h3 class="name"><code>selectByType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resourceType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1315"><code>src&#x2F;core&#x2F;peer.js:1315</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for generating a new
+ResourceSelection by resource type</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resourceType</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/ResourceSelection.html" class="crosslink">ResourceSelection</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_sendResourceCommand" class="method item">
+    <h3 class="name"><code>sendResourceCommand</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+                <li class="arg">
+                        <code>command</code>
+                </li>
+                <li class="arg">
+                        <code>arguments</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l921"><code>src&#x2F;core&#x2F;peer.js:921</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sends a command to the set of resources specified
+by the selection type and selection.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">command</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The command name to be excuted by the resources</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">arguments</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>The arguments array to be applied to the command</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>When this promise resolves, it includes a map of
+resourceID to response to this command. If a resource was unreachable
+a flag in the response, receivedResponse, is set to false indicating
+as much.</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method should not be invoked directly, but rather through the ResourceSelection
+interface. By invoking the ResourceSelection#call method, this method is invoked implicitly
+using the selection specified by that ResourceSelection object and the command name and arguments
+specified by the parameters passed into the ResourceSelection#call method
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_setResourceState" class="method item">
+    <h3 class="name"><code>setResourceState</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1011"><code>src&#x2F;core&#x2F;peer.js:1011</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Send a request to a set of resources to set some
+property to a new value</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the property to set</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The new value of the property</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>This resolves with the same object format as
+sendResourceCommand. A flag indicates if a response was received
+from the given resources that belonged to the set</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method should be invoked indirectly by using the ResourceSelection#set
+method.
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_subscribeToResourceEvent" class="method item">
+    <h3 class="name"><code>subscribeToResourceEvent</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+                <li class="arg">
+                        <code>eventType</code>
+                </li>
+                <li class="arg">
+                        <code>selectionID</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l588"><code>src&#x2F;core&#x2F;peer.js:588</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Subscribe to a certain type of event or events for a set of resources
+or a particular resource</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>This describes the selection. It could be
+the ID of a resource, a resource group name, a resource type name,
+or an interface type name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">eventType</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The event type to listen to from this set
+of resources</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">selectionID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>This identifies the selection object used
+to make the subscription</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The result contains the id of the subscription. This
+can be used as a handle to unsubscribe later</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Rather than using this method directly, it is best to use it through a ResourceSelection
+object. See the example for ResourceSelection#subscribeToEvent
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_subscribeToResourceState" class="method item">
+    <h3 class="name"><code>subscribeToResourceState</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selection</code>
+                </li>
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>selectionID</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l949"><code>src&#x2F;core&#x2F;peer.js:949</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This peer is subscribed to changes in resource state
+published by resources in the specified set</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selection</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The property to subscribe to in this set</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">selectionID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The id of the selection object that made
+this subscription</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>The subscription ID is returned in the success callback</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Rather than using this method directly, it is best to use it through a ResourceSelection
+object. See the example for ResourceSelection#subscribeToState
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_unregisterResource" class="method item">
+    <h3 class="name"><code>unregisterResource</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l545"><code>src&#x2F;core&#x2F;peer.js:545</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Unregister a resource with this peer. The peer will no longer
+receive control messages related to this resource</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>This method is called automatically when the stop meethod
+of a resource controller instance is called
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_unsubscribe" class="method item">
+    <h3 class="name"><code>unsubscribe</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selectionID</code>
+                </li>
+                <li class="arg">
+                        <code>subscriptionID</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l629"><code>src&#x2F;core&#x2F;peer.js:629</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Unsubscribe from a certain type of event or events for a set of resources
+or a particular resource</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selectionID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>This identifies the selection object used
+to make the subscription</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">subscriptionID</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The id of the subscription to cancel. This
+is obtained in the success callback of the subscribe promise. If subscriptionID
+is omitted, this selection object will be unsubscribed from all subscriptions</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Rather than using this method directly, it is best to use it through a ResourceSelection
+object. See the example for ResourceSelection#unsubscribeFromEvent
+</code></pre>
+
+            </div>
+        </div>
+</div>
+<div id="method_uuid" class="method item">
+    <h3 class="name"><code>uuid</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_core_peer.js.html#l1281"><code>src&#x2F;core&#x2F;peer.js:1281</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>A convenience method for generating new uuids</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">String</span>:
+                    <p>A hex encoded uuid string</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+
+
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                    <div id="event_command" class="events item">
+                        <h3 class="name"><code>command</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l132"><code>src&#x2F;core&#x2F;peer.js:132</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent some sort of command to a resource
+                    that is registered with this peer</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">commandName</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the command to be executed</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">arguments</code>
+                                            <span class="type">Array</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The argument list associated with this command</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this command
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_command" class="events item">
+                        <h3 class="name"><code>command</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l42"><code>src&#x2F;core&#x2F;httpPeer.js:42</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent some sort of command to a resource
+                    that is registered with this peer</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">commandName</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the command to be executed</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">arguments</code>
+                                            <span class="type">Array</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The argument list associated with this command</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this command
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_connect" class="events item">
+                        <h3 class="name"><code>connect</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l103"><code>src&#x2F;core&#x2F;httpPeer.js:103</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The peer has a connection to the server</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="event_connect" class="events item">
+                        <h3 class="name"><code>connect</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l193"><code>src&#x2F;core&#x2F;peer.js:193</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The peer has a connection to the server</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="event_disconnect" class="events item">
+                        <h3 class="name"><code>disconnect</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l199"><code>src&#x2F;core&#x2F;peer.js:199</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The peer has been disconnected from the server</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="event_disconnect" class="events item">
+                        <h3 class="name"><code>disconnect</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l109"><code>src&#x2F;core&#x2F;httpPeer.js:109</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The peer has been disconnected from the server</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="event_error" class="events item">
+                        <h3 class="name"><code>error</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l96"><code>src&#x2F;core&#x2F;httpPeer.js:96</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that a connection error occurred with the server</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">error</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The error that occurred</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_error" class="events item">
+                        <h3 class="name"><code>error</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l186"><code>src&#x2F;core&#x2F;peer.js:186</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that a connection error occurred with the server</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">error</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The error that occurred</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state change" class="events item">
+                        <h3 class="name"><code>state change</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l83"><code>src&#x2F;core&#x2F;httpPeer.js:83</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates a state change has been published from some resource
+                    whose events this peer has subscribed to.</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">resourceID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The resource that published this state change</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property that changed</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">value</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The new value of the state property</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">stateSubject</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The selection topic for which this event has been sent to this peer</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">stateName</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                             
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selection</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The topic to which this state change is published</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state change" class="events item">
+                        <h3 class="name"><code>state change</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l173"><code>src&#x2F;core&#x2F;peer.js:173</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates a state change has been published from some resource
+                    whose events this peer has subscribed to.</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">resourceID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The resource that published this state change</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property that changed</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">value</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The new value of the state property</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">stateSubject</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The selection topic for which this event has been sent to this peer</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">stateName</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                             
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selection</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The topic to which this state change is published</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state get" class="events item">
+                        <h3 class="name"><code>state get</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l70"><code>src&#x2F;core&#x2F;httpPeer.js:70</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent a request to get the state of this
+                    resource</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property to be retrieved</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this request
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state get" class="events item">
+                        <h3 class="name"><code>state get</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l160"><code>src&#x2F;core&#x2F;peer.js:160</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent a request to get the state of this
+                    resource</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property to be retrieved</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this request
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state set" class="events item">
+                        <h3 class="name"><code>state set</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_httpPeer.js.html#l56"><code>src&#x2F;core&#x2F;httpPeer.js:56</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent a request to set the state of this
+                    resource</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property to be modified</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">value</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The value to set this property to</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this request
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_state set" class="events item">
+                        <h3 class="name"><code>state set</code></h3>
+                        <span class="type"></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/src_core_peer.js.html#l146"><code>src&#x2F;core&#x2F;peer.js:146</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Indicates that some peer has sent a request to set the state of this
+                    resource</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">property</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The name of the state property to be modified</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">value</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The value to set this property to</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">senderID</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The peer ID of the peer that made this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">commandID</code>
+                                            <span class="type">Number</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The command ID associated with this request</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">selectionInfo</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>Information about which set of resources this request
+                    was sent to. Used for filtering and executing the command on all relevant resources.</p>
+                    
+                                        </div>
+                    
+                                            <ul class="params-list">
+                                                <li class="param">
+                                                        <code class="param-name">selection</code>
+                                                        <span class="type">String</span>
+                    
+                                                    <div class="param-description">
+                                                        
+                                                    </div>
+                    
+                                                </li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+            </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "DeviceJS Client API",
+    "description": "The DeviceJS client API for interacting with a DeivceJS server",
+    "version": "0.1.0",
+    "options": {
+        "ignorePaths": "./src/asyncLockMap.js",
+        "paths": "./src",
+        "outdir": "./docs"
+    }
+}

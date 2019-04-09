@@ -1,0 +1,1486 @@
+{
+    "project": {
+        "name": "DeviceJS Client API",
+        "description": "The DeviceJS client API for interacting with a DeivceJS server",
+        "version": "0.1.0"
+    },
+    "files": {
+        "src/core/httpPeer.js": {
+            "name": "src/core/httpPeer.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/core/peer.js": {
+            "name": "src/core/peer.js",
+            "modules": {},
+            "classes": {
+                "DeviceJSPeer": 1,
+                "ResourceSelection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "DeviceJSPeer": {
+            "name": "DeviceJSPeer",
+            "shortname": "DeviceJSPeer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/core/peer.js",
+            "line": 57,
+            "description": "A DeviceJS peer",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "serverAddress",
+                    "description": "The IP of the DeviceJS server",
+                    "type": "String"
+                },
+                {
+                    "name": "peerOptions",
+                    "description": "The configuration options for this peer",
+                    "type": "Object"
+                }
+            ]
+        },
+        "ResourceSelection": {
+            "name": "ResourceSelection",
+            "shortname": "ResourceSelection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/core/peer.js",
+            "line": 1369,
+            "description": "A resource selection object builds all its functionality\non the APIs provided by the DeviceJSPeer object that\nit is tied to. A resource selection represents some\nselection or set of resources which are to be monitored or\nmanipulated. It is a more convenient interface than\nthe raw API provided by DeviceJSPeer for performing these\ntasks and is the primary method by which user code should\noperate. Keep in mind that this object should be created\nthrough the dev$.select functions and not by invoking\nits constructor directly",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "peer",
+                    "description": "The DeviceJS peer that this resource selection\n  is tied to.",
+                    "type": "DeviceJSPeer"
+                },
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 42,
+            "description": "Indicates that some peer has sent some sort of command to a resource\nthat is registered with this peer",
+            "itemtype": "event",
+            "name": "command",
+            "params": [
+                {
+                    "name": "commandName",
+                    "description": "The name of the command to be executed",
+                    "type": "String"
+                },
+                {
+                    "name": "arguments",
+                    "description": "The argument list associated with this command",
+                    "type": "Array"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this command\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 56,
+            "description": "Indicates that some peer has sent a request to set the state of this\nresource",
+            "itemtype": "event",
+            "name": "state set",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the state property to be modified",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to set this property to"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this request\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 70,
+            "description": "Indicates that some peer has sent a request to get the state of this\nresource",
+            "itemtype": "event",
+            "name": "state get",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the state property to be retrieved",
+                    "type": "String"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this request\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 83,
+            "description": "Indicates a state change has been published from some resource\nwhose events this peer has subscribed to.",
+            "itemtype": "event",
+            "name": "state change",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The resource that published this state change",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The name of the state property that changed",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value of the state property"
+                },
+                {
+                    "name": "stateSubject",
+                    "description": "The selection topic for which this event has been sent to this peer",
+                    "type": "String"
+                },
+                {
+                    "name": "stateName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "selection",
+                    "description": "The topic to which this state change is published",
+                    "type": "String"
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 96,
+            "description": "Indicates that a connection error occurred with the server",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The error that occurred"
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 103,
+            "description": "The peer has a connection to the server",
+            "itemtype": "event",
+            "name": "connect",
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 109,
+            "description": "The peer has been disconnected from the server",
+            "itemtype": "event",
+            "name": "disconnect",
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 123,
+            "description": "Connect to the DeviceJS server and set up peer",
+            "itemtype": "method",
+            "name": "connect",
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nvar djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });\ndjsClient.connect().then(function() {\n    // successful connection. do more operations here\n}, function(error) {\n    // handle any connection errors here\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 203,
+            "description": "Disconnect from the DeviceJS server. This object will\nemit no further events. connect must be called again in order\nto make requests to the server.",
+            "itemtype": "method",
+            "name": "disconnect",
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nvar djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });\ndjsClient.connect().then(function() {\n    ...\n    djsClient.disconnect();\n    ...\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/httpPeer.js",
+            "line": 346,
+            "description": "NodeJS only. Returns the bearer token used by this client.\nThis is used by the browser->nodejs proxy application",
+            "itemtype": "method",
+            "name": "getBearerToken",
+            "return": {
+                "description": "The bearer token",
+                "type": "String"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 132,
+            "description": "Indicates that some peer has sent some sort of command to a resource\nthat is registered with this peer",
+            "itemtype": "event",
+            "name": "command",
+            "params": [
+                {
+                    "name": "commandName",
+                    "description": "The name of the command to be executed",
+                    "type": "String"
+                },
+                {
+                    "name": "arguments",
+                    "description": "The argument list associated with this command",
+                    "type": "Array"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this command\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 146,
+            "description": "Indicates that some peer has sent a request to set the state of this\nresource",
+            "itemtype": "event",
+            "name": "state set",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the state property to be modified",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to set this property to"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this request\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 160,
+            "description": "Indicates that some peer has sent a request to get the state of this\nresource",
+            "itemtype": "event",
+            "name": "state get",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the state property to be retrieved",
+                    "type": "String"
+                },
+                {
+                    "name": "senderID",
+                    "description": "The peer ID of the peer that made this request",
+                    "type": "String"
+                },
+                {
+                    "name": "commandID",
+                    "description": "The command ID associated with this request",
+                    "type": "Number"
+                },
+                {
+                    "name": "selectionInfo",
+                    "description": "Information about which set of resources this request\n  was sent to. Used for filtering and executing the command on all relevant resources.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selection",
+                            "description": "",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 173,
+            "description": "Indicates a state change has been published from some resource\nwhose events this peer has subscribed to.",
+            "itemtype": "event",
+            "name": "state change",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The resource that published this state change",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The name of the state property that changed",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value of the state property"
+                },
+                {
+                    "name": "stateSubject",
+                    "description": "The selection topic for which this event has been sent to this peer",
+                    "type": "String"
+                },
+                {
+                    "name": "stateName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "selection",
+                    "description": "The topic to which this state change is published",
+                    "type": "String"
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 186,
+            "description": "Indicates that a connection error occurred with the server",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The error that occurred"
+                }
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 193,
+            "description": "The peer has a connection to the server",
+            "itemtype": "event",
+            "name": "connect",
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 199,
+            "description": "The peer has been disconnected from the server",
+            "itemtype": "event",
+            "name": "disconnect",
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 207,
+            "description": "Connect to the DeviceJS server and set up peer",
+            "itemtype": "method",
+            "name": "connect",
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 218,
+            "description": "Disconnect from the DeviceJS server. This object will\nemit no further events. connect must be called again in order\nto make requests to the server.",
+            "itemtype": "method",
+            "name": "disconnect",
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 247,
+            "description": "Returns the URL of the server that this peer is connected\nto",
+            "itemtype": "method",
+            "name": "getServerAddress",
+            "return": {
+                "description": "The server address",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nlet url = dev$.getServerAddress()\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 266,
+            "description": "Add a new resource schema type to the DeviceJS server",
+            "itemtype": "method",
+            "name": "addResourceType",
+            "params": [
+                {
+                    "name": "schema",
+                    "description": "This is a resource type schema object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.addInterfaceType({\n    name: 'MyInterfaceType', // name is a string that is longer than 0 characters\n    version: '0.0.1',        // version is a semantic version string\n    commands: {              // commands is an object whose property names are non-empty strings\n        myCommand1: {\n            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats\n            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format\n        }\n    },\n    state: {\n        myStateProperty1: {\n            readOnly: true,   // readOnly is a boolean value\n            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property\n        }\n    },\n    events: {\n        myEventType: {\n            schema: { type: 'string' }\n        }\n    }\n}).then(function() {\n     return dev$.addResourceType({\n         name: 'MyResourceType',\n         version: '0.0.1',\n         interfaces: [ 'MyInterfaceType' ]\n     });\n}).then(function() {\n    // Now MyResourceType is known by the system along with\n    // its associated interfaces\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 313,
+            "description": "Add a new interface schema type to the DeviceJS server",
+            "itemtype": "method",
+            "name": "addInterfaceType",
+            "params": [
+                {
+                    "name": "schema",
+                    "description": "This is an interface type schema object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The success handler accepts no parameter. The failure\n handler accepts a single error object.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.addInterfaceType({\n    name: 'MyInterfaceType', // name is a string that is longer than 0 characters\n    version: '0.0.1',        // version is a semantic version string\n    commands: {              // commands is an object whose property names are non-empty strings\n        myCommand1: {\n            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats\n            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format\n        }\n    },\n    state: {\n        myStateProperty1: {\n            readOnly: true,   // readOnly is a boolean value\n            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property\n        }\n    },\n    events: {\n        myEventType: {\n            schema: { type: 'string' }\n        }\n    }\n}).then(function() {\n    // Now MyInterfaceType is known by the system and can be\n    // used resource schemas added with addResourceType\n})\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 354,
+            "description": "Lists all the resource type schemas",
+            "itemtype": "method",
+            "name": "listResourceTypes",
+            "return": {
+                "description": "Upon success, the promise resolves to an object\n  that contains information on all known resource types:\n\n  {\n      \"ResourceType1\": {\n          \"0.0.1\": [ResourceTypeSchema],\n          \"0.0.2\": [ResourceTypeSchema],\n            ...\n      },\n      ...\n  }",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nreturn dev$.addResourceType({\n    name: 'MyResourceType1',\n    version: '0.0.1',\n    interfaces: [ 'MyInterfaceType1' ]\n}).then(function() {\n    return dev$.addResourceType({\n        name: 'MyResourceType2',\n        version: '0.0.1',\n        interfaces: [ 'MyInterfaceType1', 'MyInterfaceType2' ]\n    });\n}).then(function() {\n      return dev$.listResourceTypes();\n}).then(function(resourceTypes) {\n    // resourceTypes =\n    // {\n    //     \"MyResourceType1\": {\n    //         \"0.0.1\": {\n    //             name: 'MyResourceType1',\n    //             version: '0.0.1',\n    //             interfaces: [ 'MyInterfaceType1' ]\n    //         }\n    //     },\n    //     \"MyResourceType2\": {\n    //         \"0.0.1\": {\n    //             name: 'MyResourceType2',\n    //             version: '0.0.1',\n    //             interfaces: [ 'MyInterfaceType1', 'MyInterfaceType2' ]\n    //         }\n    //     }\n    // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 409,
+            "description": "Lists all the interface type schemas",
+            "itemtype": "method",
+            "name": "listInterfaceTypes",
+            "return": {
+                "description": "Upon success, the promise resolves to an object\n  that contains information on all known interface types:\n\n  {\n      \"InterfaceType1\": {\n          \"0.0.1\": [InterfaceSchema],\n          \"0.0.2\": [InterfaceSchema],\n            ...\n      },\n      ...\n  }",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nreturn dev$.addInterfaceType({\n    name: 'MyInterfaceType1', // name is a string that is longer than 0 characters\n    version: '0.0.1',        // version is a semantic version string\n    commands: {              // commands is an object whose property names are non-empty strings\n        myCommand1: {\n            arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats\n            returns: { type: 'number' }     // returns is a sub-schema that describes the return value format\n        }\n    },\n    state: {\n        myStateProperty1: {\n            readOnly: true,   // readOnly is a boolean value\n            schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property\n        }\n    },\n    events: {\n        myEventType1: {\n            schema: { type: 'string' }\n        }\n    }\n}).then(function() {\n    return dev$.addInterfaceType({\n        name: 'MyInterfaceType2', // name is a string that is longer than 0 characters\n        version: '0.0.1',        // version is a semantic version string\n        commands: {              // commands is an object whose property names are non-empty strings\n            myCommand2: {\n                arguments: [ { type: 'string' } ],  // arguments is an array of sub-schemas that describe the argument formats\n                returns: { type: 'number' }     // returns is a sub-schema that describes the return value format\n            }\n        },\n        state: {\n            myStateProperty2: {\n                readOnly: true,   // readOnly is a boolean value\n                schema: { type: 'number' }  // this should be a sub-schema that describes the format of this state property\n            }\n        },\n        events: {\n            myEventType2: {\n                schema: { type: 'string' }\n            }\n        }\n    });\n}).then(function() {\n      return dev$.listInterfaceTypes();\n}).then(function(interfaceTypes) {\n    // interfaceTypes =\n    // {\n    //     \"MyInterfaceType1\": {\n    //         \"0.0.1\": {\n    //             ...\n    //         }\n    //     },\n    //     \"MyInterfaceType2\": {\n    //         \"0.0.1\": {\n    //             ...\n    //         }\n    //     }\n    // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 501,
+            "description": "Register a resource with this peer. After registering with\na resource, this peer is sent all control messages and\nrequests for that resource.",
+            "itemtype": "method",
+            "name": "registerResource",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method is called automatically when a resource controller instance is\ncreated and its start method is called\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 523,
+            "description": "List the versions of all the installed modules as well as\nthe version of DeviceJS that is running on the server.",
+            "itemtype": "method",
+            "name": "getVersions",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 534,
+            "description": "Lists the status of all installed modules on the server\nincluding their version and enabled/disabled state",
+            "itemtype": "method",
+            "name": "getModules",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 545,
+            "description": "Unregister a resource with this peer. The peer will no longer\nreceive control messages related to this resource",
+            "itemtype": "method",
+            "name": "unregisterResource",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method is called automatically when the stop meethod\nof a resource controller instance is called\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 565,
+            "description": "Forgets a resource. Normally resources are added to the index\nafter being registered for the first time. This function removes\nthe resources from the index and returns the database to a state\nwhere it has no knowledge of this resource",
+            "itemtype": "method",
+            "name": "forgetResource",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 588,
+            "description": "Subscribe to a certain type of event or events for a set of resources\nor a particular resource",
+            "itemtype": "method",
+            "name": "subscribeToResourceEvent",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "This describes the selection. It could be\n  the ID of a resource, a resource group name, a resource type name,\n  or an interface type name",
+                    "type": "String"
+                },
+                {
+                    "name": "eventType",
+                    "description": "The event type to listen to from this set\n  of resources",
+                    "type": "String"
+                },
+                {
+                    "name": "selectionID",
+                    "description": "This identifies the selection object used\n  to make the subscription",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The result contains the id of the subscription. This\n  can be used as a handle to unsubscribe later",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nRather than using this method directly, it is best to use it through a ResourceSelection\nobject. See the example for ResourceSelection#subscribeToEvent\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 629,
+            "description": "Unsubscribe from a certain type of event or events for a set of resources\nor a particular resource",
+            "itemtype": "method",
+            "name": "unsubscribe",
+            "params": [
+                {
+                    "name": "selectionID",
+                    "description": "This identifies the selection object used\n  to make the subscription",
+                    "type": "String"
+                },
+                {
+                    "name": "subscriptionID",
+                    "description": "The id of the subscription to cancel. This\n  is obtained in the success callback of the subscribe promise. If subscriptionID\n  is omitted, this selection object will be unsubscribed from all subscriptions",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nRather than using this method directly, it is best to use it through a ResourceSelection\nobject. See the example for ResourceSelection#unsubscribeFromEvent\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 669,
+            "description": "Publish a resource event on behalf of a resource that is registered\nto this peer. The DeviceJS server will send this event to all\nrelevant subscribers. Special event types include 'reachable',\nand 'unreachable'. Emit these to indicate when a resource is reachable\nor unreachable, for example when losing connectivity to a resource",
+            "itemtype": "method",
+            "name": "publishResourceEvent",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The ID of the resource publishing this event",
+                    "type": "String"
+                },
+                {
+                    "name": "eventType",
+                    "description": "The event type being published",
+                    "type": "String"
+                },
+                {
+                    "name": "eventData",
+                    "description": "The data associated with this event"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method should not be used directly, but rather invoked indirectly\nby creating a resource controller (See the DeviceJSPeer#resource method)\nand having the code inside this resource controller call its emit method\nThe emit method is overridden for resource controllers and causes this method\nto be invoked in the resource controller's underlying DeviceJSPeer\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 699,
+            "description": "Resources can be organized into a hierarchy of groups\nsimilar to a directory structure. This creates a resource\ngroup of a certain name. Resource group names are a\nseries of strings delimited by forward slashes. Ex:\n  a, a/b/c\nCreating a resource group with parent groups that do\nnot yet exist implicitly creates those parent groups.\nCreating a group that already exists has no effect",
+            "itemtype": "method",
+            "name": "createResourceGroup",
+            "params": [
+                {
+                    "name": "resourceGroupName",
+                    "description": "The name of the resource group",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.createResourceGroup('A').then(function() {\n    return dev$.createResourceGroup('B');\n}).then(function() {\n    return dev$.createResourceGroup('C');\n}).then(function() {\n    return dev$.createResourceGroup('A/B/C');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: {\n     //             B: {\n     //                 children: {\n     //                     C: {\n     //                         children: { },\n     //                         resources: { }\n     //                     }\n     //                 },\n     //                 resources: { }\n     //             }\n     //         },\n     //         resources: { }\n     //     },\n     //     B: {\n     //         children: { },\n     //         resources: { }\n     //     },\n     //     C: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 756,
+            "description": "Deleting a resource group removes all resources from\nthat group and recursively deletes all its children",
+            "itemtype": "method",
+            "name": "deleteResourceGroup",
+            "params": [
+                {
+                    "name": "resourceGroupName",
+                    "description": "The name of the resource group",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.createResourceGroup('A').then(function() {\n    return dev$.createResourceGroup('B');\n}).then(function() {\n    return dev$.createResourceGroup('C');\n}).then(function() {\n    return dev$.createResourceGroup('A/B/C');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: {\n     //             B: {\n     //                 children: {\n     //                     C: {\n     //                         children: { },\n     //                         resources: { }\n     //                     }\n     //                 },\n     //                 resources: { }\n     //             }\n     //         },\n     //         resources: { }\n     //     },\n     //     B: {\n     //         children: { },\n     //         resources: { }\n     //     },\n     //     C: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n}).then(function() {\n    return dev$.deleteResourceGroup('A/B');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { }\n     //     },\n     //     B: {\n     //         children: { },\n     //         resources: { }\n     //     },\n     //     C: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 826,
+            "description": "Joining a resource to a resource group means\nthat this resource is controllable by sending\nrequests to that resource group and that any\nevents emitted by that resource will be emitted\nto subscribers to this resource group",
+            "itemtype": "method",
+            "name": "joinResourceGroup",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The ID of the resource to add to this group",
+                    "type": "String"
+                },
+                {
+                    "name": "resourceGroupName",
+                    "description": "The name of the resource group to join",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nreturn dev$.createResourceGroup('A').then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n}).then(function() {\n    // assumes myResource1 is the ID of a known resource\n    return dev$.joinResourceGroup('myResource1', 'A');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { myResource1: { } }\n     //     }\n     // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 870,
+            "description": "Unjoins a resource from a resource group.",
+            "itemtype": "method",
+            "name": "leaveResourceGroup",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The ID of the resource to remove from this group",
+                    "type": "String"
+                },
+                {
+                    "name": "resourceGroupName",
+                    "description": "The name of the resource group to leave",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nreturn dev$.createResourceGroup('A').then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n}).then(function() {\n    // assumes myResource1 is the ID of a known resource\n    return dev$.joinResourceGroup('myResource1', 'A');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { myResource1: { } }\n     //     }\n     // }\n}).then(function() {\n    return dev$.leaveResourceGroup('myResource1', 'A');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 921,
+            "description": "Sends a command to the set of resources specified\nby the selection type and selection.",
+            "itemtype": "method",
+            "name": "sendResourceCommand",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "command",
+                    "description": "The command name to be excuted by the resources",
+                    "type": "String"
+                },
+                {
+                    "name": "arguments",
+                    "description": "The arguments array to be applied to the command",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "When this promise resolves, it includes a map of\n  resourceID to response to this command. If a resource was unreachable\n  a flag in the response, receivedResponse, is set to false indicating\n  as much.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method should not be invoked directly, but rather through the ResourceSelection\ninterface. By invoking the ResourceSelection#call method, this method is invoked implicitly\nusing the selection specified by that ResourceSelection object and the command name and arguments\nspecified by the parameters passed into the ResourceSelection#call method\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 949,
+            "description": "This peer is subscribed to changes in resource state\npublished by resources in the specified set",
+            "itemtype": "method",
+            "name": "subscribeToResourceState",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The property to subscribe to in this set",
+                    "type": "String"
+                },
+                {
+                    "name": "selectionID",
+                    "description": "The id of the selection object that made\n  this subscription",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The subscription ID is returned in the success callback",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nRather than using this method directly, it is best to use it through a ResourceSelection\nobject. See the example for ResourceSelection#subscribeToState\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 986,
+            "description": "Publish a resource state change event on behalf of\na resource that is registered to this peer",
+            "itemtype": "method",
+            "name": "publishResourceStateChange",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The ID of the resource that is publishing\n  this event.",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The name of the property that has changed",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value of the property",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method should never be invoked directly. It is automatically called\nwhen a resource controller's state setters is called.\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1011,
+            "description": "Send a request to a set of resources to set some\nproperty to a new value",
+            "itemtype": "method",
+            "name": "setResourceState",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The name of the property to set",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value of the property",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "This resolves with the same object format as\n  sendResourceCommand. A flag indicates if a response was received\n  from the given resources that belonged to the set",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method should be invoked indirectly by using the ResourceSelection#set\nmethod.\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1036,
+            "description": "Send a request to a get of resources to get the state\nof some property.",
+            "itemtype": "method",
+            "name": "getResourceState",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The name of the property to get",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "This resolves with the same object format as\n  sendResourceCommand. A flag indicates if a response was received\n  from the given resources that belonged to the set",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method should be invoked indirectly by using the ResourceSelection#get\nmethod.\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1060,
+            "description": "After receiving a command event, a state set event,\nor a state get event the peer must response on behalf\nof a given resource once that resource has fulfilled\nthe request.",
+            "itemtype": "method",
+            "name": "responseToCommand",
+            "params": [
+                {
+                    "name": "commandID",
+                    "description": "The commandID associated with this\n  response",
+                    "type": "String"
+                },
+                {
+                    "name": "resourceID",
+                    "description": "The resource that is responding",
+                    "type": "String"
+                },
+                {
+                    "name": "response",
+                    "description": "The value associated with this response"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nThis method is invoked automatically by the resource controller's code\nwhen a command returns a promise and that promise resolves or rejects, the command\nreturns a non-promise value or the command throws an exception\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1087,
+            "description": "Enumerates the resources associated with a certain selection",
+            "itemtype": "method",
+            "name": "listResources",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Resolves with a set of resources",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.registerResource('myResource1', 'MyResourceType').then(function() {\n    return dev$.registerResource('myResource2', 'MyResourceType');\n}).then(function() {\n    return dev$.registerResource('myResource3', 'MyResourceType');\n}).then(function() {\n    return dev$.listResources('type=\"MyResourceType\"');\n}).then(function(resources) {\n    // {\n    //     myResource1: {\n    //         reachable: true,\n    //         registered: true,\n    //         type: 'MyResourceType'\n    //     },\n    //     myResource2: {\n    //         reachable: true,\n    //         registered: true,\n    //         type: 'MyResourceType'\n    //     },\n    //     myResource3: {\n    //         reachable: true,\n    //         registered: true,\n    //         type: 'MyResourceType'\n    //     }\n    // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1128,
+            "description": "Returns a hierarchy of groups and the resources\ncontained within them",
+            "itemtype": "method",
+            "name": "getResourceGroup",
+            "params": [
+                {
+                    "name": "groupName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Resolves with a hierarchy of resources",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nreturn dev$.createResourceGroup('A').then(function() {\n    return dev$.createResourceGroup('B');\n}).then(function() {\n    return dev$.createResourceGroup('C');\n}).then(function() {\n    return dev$.createResourceGroup('A/B/C');\n}).then(function() {\n    return dev$.getResourceGroup();\n}).then(function(group) {\n     // {\n     //     A: {\n     //         children: {\n     //             B: {\n     //                 children: {\n     //                     C: {\n     //                         children: { },\n     //                         resources: { }\n     //                     }\n     //                 },\n     //                 resources: { }\n     //             }\n     //         },\n     //         resources: { }\n     //     },\n     //     B: {\n     //         children: { },\n     //         resources: { }\n     //     },\n     //     C: {\n     //         children: { },\n     //         resources: { }\n     //     }\n     // }\n}).then(function() {\n    return dev$.getResourceGroup('A');\n}).then(function(group) {\n     // {\n     //     children: {\n     //         B: {\n     //             children: {\n     //                 C: {\n     //                     children: { },\n     //                     resources: { }\n     //                 }\n     //             },\n     //             resources: { }\n     //         }\n     //     }\n     // }\n}).then(function() {\n    return dev$.getResourceGroup('A/B');\n}).then(function(group) {\n     // {\n     //     children: {\n     //         C: {\n     //             children: { },\n     //             resources: { }\n     //         }\n     //     },\n     //     resources: { }\n     // }\n});\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1209,
+            "description": "A convenience method for creating a new\nResourceController constructor",
+            "itemtype": "method",
+            "name": "resource",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "resource type name",
+                    "type": "String"
+                },
+                {
+                    "name": "implementation",
+                    "description": "The api of the resource controller",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The new constructor",
+                "type": "ResourceController"
+            },
+            "example": [
+                "\n```\nvar ExampleMotionSensor = dev$.resource('Examples/ExampleMotionSensor', {\n    start: function(options) {\n        var self = this;\n\n        console.log('Start ExampleMotionSensor');\n\n        this._motionSenseInterval = setInterval(function() {\n            self.emit('motion', Math.random());\n        }, 4000);\n    },\n    stop: function() {\n        clearInterval(this._motionSenseInterval);\n    },\n    state: { },\n    commands: { }\n});\n\nvar ExampleLight = dev$.resource('Examples/ExampleLight', {\n    start: function(options) {\n        console.log('Start ExampleLight');\n        this._power = 'off';\n        this._brightness = 0.0;\n    },\n    stop: function() {\n    },\n    state: {\n        power: {\n            get: function() {\n                return this._power;\n            },\n            set: function(value) {\n                console.log('SET POWER', value);\n                this._power = value;\n            }\n        },\n        brightness: {\n            get: function() {\n                return this._brightness;\n            },\n            set: function(value) {\n                console.log('SET BRIGHTNESS %d %%', parseInt(this._brightness*100));\n                this._brightness = value;\n            }\n        }\n    },\n    commands: {\n        on: function() {\n            console.log('TURN ON LIGHT');\n            return this.state.power.set('on');\n        },\n        off: function() {\n            console.log('TURN OFF LIGHT');\n            return this.state.power.set('off');\n        }\n    }\n});\n ```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1281,
+            "description": "A convenience method for generating new uuids",
+            "itemtype": "method",
+            "name": "uuid",
+            "return": {
+                "description": "A hex encoded uuid string",
+                "type": "String"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1291,
+            "description": "A convenience method for generating a new\nResourceSelection by resource ID",
+            "itemtype": "method",
+            "name": "selectByID",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ResourceSelection"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1303,
+            "description": "A convenience method for generating a new\nResourceSelection by resource interface",
+            "itemtype": "method",
+            "name": "selectByInterface",
+            "params": [
+                {
+                    "name": "resourceInterface",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ResourceSelection"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1315,
+            "description": "A convenience method for generating a new\nResourceSelection by resource type",
+            "itemtype": "method",
+            "name": "selectByType",
+            "params": [
+                {
+                    "name": "resourceType",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ResourceSelection"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1327,
+            "description": "A convenience method for generating a new\nResourceSelection by resource group",
+            "itemtype": "method",
+            "name": "selectByGroup",
+            "params": [
+                {
+                    "name": "group",
+                    "description": "The resource group name",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ResourceSelection"
+            },
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1339,
+            "description": "Generate a new ResourceSelection\nby selection string",
+            "itemtype": "method",
+            "name": "select",
+            "params": [
+                {
+                    "name": "selection",
+                    "description": "The selection string\n  Selection String Format:\n  <predicate>      ::= <term> | <term> 'or' <predicate>\n  <term>           ::= <factor> | <factor> 'and' <term>\n  <factor>         ::= <property> | '(' <predicate> ')' | 'not' <factor>\n  <property>       ::= <property-name> '=' <property-value>\n  <property-name>  ::= 'interface' | 'group' | 'type' | 'id'\n  <property-value> ::= '*' | \\\"([^\\\"\\\\]|\\\\\"|\\\\\\\\|\\\\\\/|\\\\b|\\\\f|\\\\n|\\\\r|\\\\t|(\\\\u([0-9A-F]{4}|([0-9a-f]{4}))))*\\\"",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ResourceSelection"
+            },
+            "example": [
+                "\n```\ndev$.select('type=\"MyResourceType1\"')\ndev$.select('interface=\"Switchable\"')\ndev$.select('group=\"A/B\"')\ndev$.select('id=\"device123abc\"')\ndev$.select('interface=\"Switchable\" and group=\"A/B\"')\ndev$.select('interface=\"Switchable\" or group=\"A/B\"')\ndev$.select('(type=\"MyResourceType1\" or group=\"A/B\") and interface=\"Dimmable\"')\n...\n```"
+            ],
+            "class": "DeviceJSPeer"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1528,
+            "description": "This is fired when a resource in this selection\npublishes a state change",
+            "itemtype": "event",
+            "name": "state",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The source of this event",
+                    "type": "String"
+                },
+                {
+                    "name": "property",
+                    "description": "The property that has changed",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value of this property"
+                }
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1538,
+            "description": "This is fired when a resource in this selection\npublishes an event",
+            "itemtype": "event",
+            "name": "event",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The source of this event",
+                    "type": "String"
+                },
+                {
+                    "name": "type",
+                    "description": "The type of event",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "Any data associated with the event"
+                }
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1548,
+            "description": "This is fired when a resource in this selection\nis discovered",
+            "itemtype": "event",
+            "name": "discover",
+            "params": [
+                {
+                    "name": "resourceID",
+                    "description": "The source of this event",
+                    "type": "String"
+                },
+                {
+                    "name": "resourceInfo",
+                    "description": "Information about the discovered resource",
+                    "type": "Object"
+                }
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1557,
+            "description": "This method wraps the subscribeToResourceEvent method\ndefined by DeviceJSPeer",
+            "itemtype": "method",
+            "name": "subscribeToEvent",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The type of event to subscribe to",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nvar motionSensors = dev$.selectByType('Examples/ExampleMotionSensor');\nmotionSensors.subscribeToEvent('motion');\nmotionSensors.on('event', function(resourceID, eventName, eventData) {\n    if(eventName == 'motion') {\n        console.log('Saw a motion event from resource', resourceID);\n    }\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1579,
+            "description": "This method wraps the subscribeToResourceState method\ndefined by DeviceJSPeer",
+            "itemtype": "method",
+            "name": "subscribeToState",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The type of property to subscribe to",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nvar lights = dev$.selectByType('Examples/ExampleLight');\nlights.subscribeToState('power');\nlights.on('state', function(resourceID, stateName, stateData) {\n    console.log('Resource', resourceID, 'changed its power state to', stateData);\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1599,
+            "description": "This method wraps the unsubscribe method\ndefined by DeviceJSPeer",
+            "itemtype": "method",
+            "name": "unsubscribe",
+            "params": [
+                {
+                    "name": "subscriptionID",
+                    "description": "The id of the subscription to cancel obtained from a previous call to subscribe()",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\nvar motionSensors = dev$.selectByType('Examples/ExampleMotionSensor');\nvar subscriptionID\nmotionSensors.subscribeToEvent('motion').then(function(result) {\n    subscriptionID = result.id\n})\n\nmotionSensors.on('event', function(resourceID, eventName, eventData) {\n    if(eventName == 'motion') {\n        console.log('Saw a motion event from resource', resourceID);\n        motionSensors.unsubscribe(subscriptionID); // tell server to stop sending these events to me\n    }\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1626,
+            "description": "This method wraps the listResources method\ndefined by DeviceJSPeer. It lists all the resources\nin this resource selection.",
+            "itemtype": "method",
+            "name": "listResources",
+            "return": {
+                "description": "This is the promise returned by DeviceJSPeer's\n  listResources method.",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.selectByType('Examples/ExampleLight').listResources().then(function(resources) {\n    // {\n    //     light1: {\n    //         reachable: true,\n    //         registered: true,\n    //         type: 'Examples/ExampleLight'\n    //     }\n    // }\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1653,
+            "description": "This initiates the discovery process for resources\nmatching this selection set. If any resources are\nalready registered matching this selection then those\nwill be discovered. After that, any new resource\njoining this set will be discovered.",
+            "itemtype": "method",
+            "name": "discover",
+            "params": [
+                {
+                    "name": "localOnly",
+                    "description": "This defaults to false. If true\n  only resources registered to peers connected directly to the\n  same DeviceJS server will be discovered.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "example": [
+                "\n```\nvar lights = dev$.selectByType('Examples/ExampleLight');\nlights.discover();\nlights.on('discover', function(resourceID, resourceInfo) {\n    // resourceID = light1\n    // resourceInfo = { reachable: true, registered: true, type: 'Examples/ExampleLight' }\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1716,
+            "description": "Stops the discovery process",
+            "itemtype": "method",
+            "name": "stopDiscovering",
+            "example": [
+                "\n```\nvar lights = dev$.selectByType('Examples/ExampleLight');\nlights.discover();\nlights.on('discover', function(resourceID, resourceInfo) {\n    // resourceID = light1\n    // resourceInfo = { reachable: true, registered: true, type: 'Examples/ExampleLight' }\n    lights.stopDiscovering(); // this selection will no longer emit discover events\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1738,
+            "description": "Execute a certain command. All parameters\nafter the first parameter are considered\ncommand arguments and are passed to the command\nas an array.",
+            "itemtype": "method",
+            "name": "call",
+            "params": [
+                {
+                    "name": "command",
+                    "description": "The name of the command to execute\n  on this selection",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "This is the promise returned by DeviceJSPeer's\n  sendResourceCommand method",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.selectByType('Examples/ExampleLight').call('on').then(function() {\n    console.log('Turned on all ExampleLight lights');\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1768,
+            "description": "Set a property of all resources in\nthis resource selection to some value",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the property",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to set it to"
+                }
+            ],
+            "return": {
+                "description": "This is the promise returned by DeviceJSPeer's\n  setResourceState method",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.selectByType('Examples/ExampleLight').set('brightness', 0.5).then(function() {\n    console.log('Set all ExampleLight lights\\' brightness to 50%'');\n});\n```"
+            ],
+            "class": "ResourceSelection"
+        },
+        {
+            "file": "src/core/peer.js",
+            "line": 1795,
+            "description": "Get a property of all resources in\nthis resource selection",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the property",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "This is the promise returned by DeviceJSPeer's\n  getResourceState method",
+                "type": "Promise"
+            },
+            "example": [
+                "\n```\ndev$.selectByType('Examples/ExampleLight').get('brightness').then(function(responses) {\n    // responses =\n    // {\n    //     light1: { receivedResponse: true, response: 0.64 }\n    // }\n});"
+            ],
+            "class": "ResourceSelection"
+        }
+    ],
+    "warnings": []
+}

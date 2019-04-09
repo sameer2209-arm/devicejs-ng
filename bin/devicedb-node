@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) 2018, Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var argv = require('optimist').argv;
+var fs = require('fs');
+var path = require('path');
+var Server = require('../deps/devicedb-distributed/src/server');
+var defaults = require('../src/runtime/defaults.json');
+var jsonminify = require('jsonminify');
+
+if(typeof argv.config === 'string') {
+	var configFile = argv.config;
+}
+else {
+	var configFile = defaults.configFile;
+}
+
+try {
+	var config = JSON.parse(jsonminify(fs.readFileSync(configFile, 'utf8')));
+}
+catch(error) {
+    console.error('Could not load config file', error);
+    process.exit(1);
+}
+
+var databaseConfig = config.databaseConfig || { };
+
+function fillInHTTPS(configDir, httpsOptions) {
+    if(!httpsOptions) {
+        return;
+    }
+    
+    if(httpsOptions.ca) {
+        for(var i = 0; i < httpsOptions.ca.length; i += 1) {
+            httpsOptions.ca[i] = fs.readFileSync(path.resolve(configDir, httpsOptions.ca[i]), 'utf8');
+        }
+    }
+    
+    if(httpsOptions.key) {
+        httpsOptions.key = fs.readFileSync(path.resolve(configDir, httpsOptions.key), 'utf8');
+    }
+    
+    if(httpsOptions.cert) {
+        httpsOptions.cert = fs.readFileSync(path.resolve(configDir, httpsOptions.cert), 'utf8');
+    }
+}
+
+if(databaseConfig.https) {
+    fillInHTTPS(path.dirname(configFile), databaseConfig.https.client)
+    fillInHTTPS(path.dirname(configFile), databaseConfig.https.server)
+}
+
+var server = new Server(databaseConfig);
+
+server.start().then(function() {
+    console.log('Started!');
+}, function(error) {
+    console.error('Startup failed: ', error);
+});
