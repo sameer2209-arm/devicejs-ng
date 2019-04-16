@@ -25,7 +25,7 @@ package logging
 
 
 import (
-    "github.com/WigWagCo/wigwag-go-logger/logging"
+    "github.com/armpelionedge/wigwag-go-logger/logging"
 )
 
 var Log = logging.Log
