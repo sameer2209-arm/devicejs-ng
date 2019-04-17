@@ -8,7 +8,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/armpelionedge/edge-go-logger/logging",
-			"Rev": "c490edf07961ded7457e7a0f56c4918ce418c658"
+			"Rev": "d3461e08601e702d9d1adc07461589734d18c3a9"
 		},
 		{
 			"ImportPath": "github.com/beorn7/perks/quantile",
@@ -413,7 +413,7 @@
 		},
 		{
 			"ImportPath": "github.com/armpelionedge/edge-go-logger/vendor/github.com/op/go-logging",
-			"Rev": "c490edf07961ded7457e7a0f56c4918ce418c658"
+			"Rev": "d3461e08601e702d9d1adc07461589734d18c3a9"
 		}
 	]
 }
