@@ -7,7 +7,7 @@
 	],
 	"Deps": [
 		{
-			"ImportPath": "github.com/armpelionedge/wigwag-go-logger/logging",
+			"ImportPath": "github.com/armpelionedge/edge-go-logger/logging",
 			"Rev": "c490edf07961ded7457e7a0f56c4918ce418c658"
 		},
 		{
@@ -412,7 +412,7 @@
 			"Rev": "e4d366fc3c7938e2958e662b4258c7a89e1f0e3e"
 		},
 		{
-			"ImportPath": "github.com/armpelionedge/wigwag-go-logger/vendor/github.com/op/go-logging",
+			"ImportPath": "github.com/armpelionedge/edge-go-logger/vendor/github.com/op/go-logging",
 			"Rev": "c490edf07961ded7457e7a0f56c4918ce418c658"
 		}
 	]
