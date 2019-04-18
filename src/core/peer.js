@@ -2082,9 +2082,11 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
         return new Promise(function(resolve, reject) {
             function tryAgain() {
                 self._peer.registerResource(self._resourceID, resourceType).then(resolve).catch(function(error) {
-                    console.error('Error: ResourceController#start %s %s while attempting to register resource. Will retry in 5 seconds: ', self._resourceID, resourceType, error)
+                    if(!(error && error.status == 500 && error.response == "Already registered")) {
+                        console.error('Error: ResourceController#start %s %s while attempting to register resource. Will retry in 5 seconds: ', self._resourceID, resourceType, error)
 
-                    setTimeout(tryAgain, 5000)
+                        setTimeout(tryAgain, 5000)
+                    }
                 })
             }
 
