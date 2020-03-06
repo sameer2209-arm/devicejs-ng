@@ -42,7 +42,7 @@ pipeline {
             label 'noi-linux-ubuntu16-ci-slave'
           }
           steps {
-            sh 'npm cache clean && npm install'
+            sh 'npm install'
             sh 'npm install mocha-junit-reporter --save-dev'
             sh './node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
           }
@@ -56,9 +56,11 @@ pipeline {
             scannerHome = tool 'SonarQubeScanner'
           }
           steps {
-            withSonarQubeEnv('sonarqube') {
-              //sh 'id -un'
-              sh "${scannerHome}/bin/sonar-scanner"
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+              withSonarQubeEnv('sonarqube') {
+                //sh 'id -un'
+                sh "${scannerHome}/bin/sonar-scanner"
+              }
             }
           }
         }
