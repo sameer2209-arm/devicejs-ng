@@ -9,7 +9,7 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps{
-        sh 'curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -'
+        sh 'curl -sL https://deb.nodesource.com/setup_12.x'
         sh 'sudo apt-get install -y nodejs'
       }
     }
