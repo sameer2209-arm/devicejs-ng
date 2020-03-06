@@ -74,8 +74,10 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps {
-        sh 'npm -g install yuidocjs'
-        sh 'yuidoc .'
+        withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
+          sh "echo ${JENKINS_PASSWORD} | sudo -S npm -g install yuidocjs"
+          sh 'yuidoc .'
+        }
       }
     }
   }
