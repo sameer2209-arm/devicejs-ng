@@ -11,7 +11,7 @@ pipeline {
       steps{
         withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
           sh "curl -sL https://deb.nodesource.com/setup_12.x | echo ${JENKINS_PASSWORD} | sudo -SE bash -"
-          sh 'sudo apt-get install -y nodejs'
+          sh 'echo ${JENKINS_PASSWORD} | sudo -S apt-get install -y nodejs'
         }
       }
     }
