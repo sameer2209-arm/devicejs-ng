@@ -9,8 +9,10 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps{
-        sh 'curl -sL https://deb.nodesource.com/setup_12.x'
-        sh 'sudo apt-get install -y nodejs'
+        withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
+          sh "curl -sL https://deb.nodesource.com/setup_12.x | echo ${JENKINS_PASSWORD} | sudo -SE bash -"
+          sh 'sudo apt-get install -y nodejs'
+        }
       }
     }
     stage('Fetch Code'){
