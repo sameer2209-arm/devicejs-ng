@@ -42,7 +42,7 @@ pipeline {
             label 'noi-linux-ubuntu16-ci-slave'
           }
           steps {
-            sh 'napm cache clean && npm install'
+            sh 'npm cache clean && npm install'
             sh 'npm install mocha-junit-reporter --save-dev'
             sh './node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
           }
