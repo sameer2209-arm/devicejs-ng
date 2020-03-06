@@ -20,6 +20,7 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps{
+        cleanWs()
         checkout scm
       }
     }
