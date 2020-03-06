@@ -28,7 +28,9 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
        steps {
-        sh './build.sh'
+         withEnv(["GOROOT=/home/jenkins/go", "GOPATH=/home/jenkins/goprojects", "PATH+GO=/home/jenkins/goprojects/bin:/home/jenkins/go/bin"]){
+          sh './build.sh'
+         }
       }
     }
     
@@ -39,6 +41,7 @@ pipeline {
             label 'noi-linux-ubuntu16-ci-slave'
           }
           steps {
+            sh 'napm cache clean && npm install'
             sh 'npm install mocha-junit-reporter --save-dev'
             sh './node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
           }
