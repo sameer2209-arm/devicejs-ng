@@ -42,9 +42,11 @@ pipeline {
             label 'noi-linux-ubuntu16-ci-slave'
           }
           steps {
-            sh 'npm install'
-            sh 'npm install mocha-junit-reporter --save-dev'
-            sh './node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
+            catchError{
+              sh 'npm install'
+              sh 'npm install mocha-junit-reporter --save-dev'
+              sh './node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
+            }
           }
         }
         
