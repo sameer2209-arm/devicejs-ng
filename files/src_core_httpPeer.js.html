@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/core/httpPeer.js - DeviceJS Client API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="DeviceJS Client API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.1.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/DeviceJSPeer.html">DeviceJSPeer</a></li>
+                                <li><a href="../classes/ResourceSelection.html">ResourceSelection</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/core/httpPeer.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+var request = require(&#x27;request&#x27;)
+var url = require(&#x27;url&#x27;);
+var EventEmitter = require(&#x27;events&#x27;).EventEmitter;
+var DeviceJSPeer = require(&#x27;./peer&#x27;);
+var uuid = require(&#x27;node-uuid&#x27;);
+var socketioClient = require(&#x27;socket.io-client&#x27;);
+var selection = require(&#x27;./selection&#x27;);
+
+function makeUUIDHex() {
+    var uuidBuffer = new Buffer(16);
+
+    uuid.v4(null, uuidBuffer, 0);
+
+    return uuidBuffer.toString(&#x27;hex&#x27;);
+}
+
+/**
+ * A DeviceJS peer 
+ *
+ * @class DeviceJSPeer
+ * @constructor
+ * @param {String} serverAddress The IP of the DeviceJS server
+ * @param {Object} peerOptions The configuration options for this peer
+ */
+var HTTPPeer = function(httpCoreServerAddress, options) {
+    DeviceJSPeer.call(this, httpCoreServerAddress);
+
+    var peerOptions = options.peer;
+    
+    this.https = options.https;
+    this.pendingRequests = { };
+    this.nextRequestID = 0;
+
+    // Connections must use an api key and api secret
+    // to identify and authorize applications
+    if(typeof peerOptions === &#x27;object&#x27; &amp;&amp; typeof peerOptions.apiKey === &#x27;string&#x27; &amp;&amp; typeof peerOptions.apiSecret === &#x27;string&#x27;) {
+        this.apiKey = peerOptions.apiKey;
+        this.apiSecret = peerOptions.apiSecret;
+    }
+};
+
+/**
+ * Indicates that some peer has sent some sort of command to a resource
+ * that is registered with this peer
+ *
+ * @event command
+ * @param {String} commandName The name of the command to be executed
+ * @param {Array} arguments The argument list associated with this command
+ * @param {String} senderID The peer ID of the peer that made this request
+ * @param {Number} commandID The command ID associated with this request
+ * @param {Object} selectionInfo Information about which set of resources this command
+ *   was sent to. Used for filtering and executing the command on all relevant resources.
+ * @param {String} selectionInfo.selection
+ */
+
+/**
+ * Indicates that some peer has sent a request to set the state of this
+ * resource
+ *
+ * @event state set
+ * @param {String} property The name of the state property to be modified
+ * @param value The value to set this property to
+ * @param {String} senderID The peer ID of the peer that made this request
+ * @param {Number} commandID The command ID associated with this request
+ * @param {Object} selectionInfo Information about which set of resources this request
+ *   was sent to. Used for filtering and executing the command on all relevant resources.
+ * @param {String} selectionInfo.selection
+ */
+
+/**
+ * Indicates that some peer has sent a request to get the state of this
+ * resource
+ *
+ * @event state get
+ * @param {String} property The name of the state property to be retrieved
+ * @param {String} senderID The peer ID of the peer that made this request
+ * @param {Number} commandID The command ID associated with this request
+ * @param {Object} selectionInfo Information about which set of resources this request
+ *   was sent to. Used for filtering and executing the command on all relevant resources.
+ * @param {String} selectionInfo.selection
+ */
+
+/**
+ * Indicates a state change has been published from some resource
+ * whose events this peer has subscribed to.
+ *
+ * @event state change
+ * @param {String} resourceID The resource that published this state change
+ * @param {String} property The name of the state property that changed
+ * @param value The new value of the state property
+ * @param {String} stateSubject The selection topic for which this event has been sent to this peer
+ * @param {String} stateName
+ * @param {String} selection The topic to which this state change is published
+ */
+
+/**
+ * Indicates that a connection error occurred with the server
+ *
+ * @event error
+ * @param error The error that occurred
+ */
+
+/**
+ * The peer has a connection to the server
+ *
+ * @event connect
+ */
+
+/**
+ * The peer has been disconnected from the server
+ *
+ * @event disconnect
+ */
+
+HTTPPeer.prototype = Object.create(DeviceJSPeer.prototype);
+
+HTTPPeer.prototype.requiresAuth = function() {
+    var self = this;
+    
+    return self.sendHTTPGet(&#x27;/requiresAuth&#x27;)
+};
+
+/**
+ * Connect to the DeviceJS server and set up peer
+ *
+ * @method connect
+ * @return {Promise} The success handler accepts no parameter. The failure
+ *  handler accepts a single error object.
+ * @example
+ * &#x60;&#x60;&#x60;
+ * var djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });
+ * djsClient.connect().then(function() {
+ *     // successful connection. do more operations here
+ * }, function(error) {
+ *     // handle any connection errors here
+ * });
+ * &#x60;&#x60;&#x60;
+ */
+HTTPPeer.prototype.connect = function() {
+    var self = this;
+
+    return this.disconnect().then(function() {
+        // Obtains a token for doing future requests
+        // and establishing a socket.io connection to the server
+        // to use as a notification channel
+        return self.sendHTTPPost(&#x27;/token&#x27;, {
+        })
+    }).then(function(token) {
+        return new Promise(function(resolve, reject) {
+            // Establish a socket.io connection, passing the
+            // Token with the connection request. This is used
+            // For authentication and to pair future HTTP requests
+            // With our notification channel
+            self.encodedToken = token;
+            self.socket = socketioClient.connect(self.getServerAddress(), { 
+                &#x27;forceNew&#x27;: true,
+                &#x27;query&#x27;: &#x27;encodedToken=&#x27;+encodeURIComponent(token)
+            });
+
+            // A helper function that emits an event from this HTTP peer
+            // object from an event name and an argument list
+            function emit(eventName, argumentList) {
+                var args = [ ];
+
+                args.push(eventName);
+
+                for(var i=0;i&lt;argumentList.length;i++) {
+                    args.push(argumentList[i]);
+                }
+
+                self.connectionEmitter.emit.apply(self.connectionEmitter, args);
+            }
+ 
+            self.socket.on(&#x27;connect&#x27;, function() {
+            }).on(&#x27;ok&#x27;, function() {
+                self.connectionEmitter.emit(&#x27;connect&#x27;);
+                resolve();
+            }).on(&#x27;error&#x27;, function(error) {
+                self.connectionEmitter.emit(&#x27;error&#x27;, error);
+                reject(error);
+            }).on(&#x27;disconnect&#x27;, function() {
+                self.connectionEmitter.emit(&#x27;disconnect&#x27;);
+                reject();
+            }).on(&#x27;link up&#x27;, function() {
+                emit(&#x27;link up&#x27;, arguments);
+            }).on(&#x27;link down&#x27;, function() {
+                emit(&#x27;link down&#x27;, arguments);
+            }).on(&#x27;command&#x27;, function() {
+                emit(&#x27;command&#x27;, arguments);
+            }).on(&#x27;state set&#x27;, function() {
+                emit(&#x27;state set&#x27;, arguments);
+            }).on(&#x27;state get&#x27;, function() {
+                emit(&#x27;state get&#x27;, arguments);
+            }).on(&#x27;state change&#x27;, function() {
+                emit(&#x27;state change&#x27;, arguments);
+            }).on(&#x27;event&#x27;, function() {
+                emit(&#x27;event&#x27;, arguments);
+            });
+        });
+    });
+};
+
+/**
+ * Disconnect from the DeviceJS server. This object will
+ * emit no further events. connect must be called again in order
+ * to make requests to the server.
+ *
+ * @method disconnect
+ * @return {Promise} The success handler accepts no parameter. The failure
+ *  handler accepts a single error object.
+ * @example
+ * &#x60;&#x60;&#x60;
+ * var djsClient = new devicejs.DeviceJSPeer(SERVER_URL, { });
+ * djsClient.connect().then(function() {
+ *     ...
+ *     djsClient.disconnect();
+ *     ...
+ * });
+ * &#x60;&#x60;&#x60;
+ */
+HTTPPeer.prototype.disconnect = function() {
+    var self = this;
+
+    Object.keys(self.pendingRequests).forEach(function(requestID) {
+        self.pendingRequests[requestID].abort();
+    });
+
+    self.pendingRequests = { };
+
+    return new Promise(function(resolve, reject) {
+        if(self.socket) {
+            try {
+                self.emit(&#x27;disconnect&#x27;);
+            }
+            catch(e) {
+            }
+
+            self.socket.removeAllListeners(&#x27;connect&#x27;);
+            self.socket.removeAllListeners(&#x27;error&#x27;);
+            self.socket.removeAllListeners(&#x27;disconnect&#x27;);
+            self.socket.removeAllListeners(&#x27;reconnect&#x27;);
+            self.socket.removeAllListeners(&#x27;reconnect_attempt&#x27;);
+            self.socket.removeAllListeners(&#x27;reconnecting&#x27;);
+            self.socket.removeAllListeners(&#x27;reconnect_error&#x27;);
+            self.socket.removeAllListeners(&#x27;reconnect_failed&#x27;);
+            self.socket.removeAllListeners(&#x27;command&#x27;);
+            self.socket.removeAllListeners(&#x27;state set&#x27;);
+            self.socket.removeAllListeners(&#x27;state get&#x27;);
+            self.socket.removeAllListeners(&#x27;state change&#x27;);
+            self.socket.removeAllListeners(&#x27;event&#x27;);
+            self.socket.disconnect();
+            self.socket = null;
+        }
+
+        delete self.encodedToken; 
+
+        resolve();
+    });
+};
+
+HTTPPeer.prototype._newRequestOptions = function(options) {
+    var _options = { };
+    
+    if(this.https &amp;&amp; this.https.client) {
+        for(var k in this.https.client) {
+            _options[k] = this.https.client[k];
+        }
+    }
+    
+    for(var k in options) {
+        _options[k] = options[k];
+    }
+    
+    if(this.encodedToken) {
+        _options.headers = _options.headers || { };
+        _options.headers.authorization = &#x27;Bearer &#x27; + this.encodedToken;
+    }
+    
+    _options.agentOptions = {
+        checkServerIdentity: function(servername, cert) {
+        }
+    }
+    
+    return _options;
+};
+
+// A helper function that sends JSON encoded POST requests
+// to the DeviceJS server
+HTTPPeer.prototype.sendHTTPPost = function(path, body) {
+    var self = this;
+
+    return new Promise(function(resolve, reject) {
+        request(self._newRequestOptions({
+            uri: url.resolve(self.getServerAddress(), path),
+            body: body,
+            method: &#x27;POST&#x27;,
+            json: true
+        }), function(error, response, responseBody) {
+            if(error) {
+                reject(error);
+            }
+            else if(response.statusCode != 200) {
+                reject({ status: response.statusCode, response: responseBody })
+            }
+            else {
+                resolve(responseBody);
+            }
+        });
+    });
+};
+
+// A helper function that sends JSON encoded GET requests
+// to the DeviceJS server
+HTTPPeer.prototype.sendHTTPGet = function(path) {
+    var self = this;
+
+    return new Promise(function(resolve, reject) {
+        request(self._newRequestOptions({
+            uri: url.resolve(self.getServerAddress(), path),
+            method: &#x27;GET&#x27;,
+            json: true
+        }), function(error, response, responseBody) {
+            if(error) {
+                reject(error);
+            }
+            else if(response.statusCode != 200) {
+                reject({ status: response.statusCode, response: responseBody })
+            }
+            else {
+                resolve(responseBody);
+            }
+        });
+    });
+};
+
+HTTPPeer.prototype.sendSocket = function(type, message) {
+    if(this.socket) {
+        this.socket.emit(type, message)
+        return Promise.resolve()
+    }
+    else {
+        return Promise.reject(new Error(&#x27;No connection&#x27;))
+    }
+};
+
+/**
+ * NodeJS only. Returns the bearer token used by this client.
+ * This is used by the browser-&gt;nodejs proxy application
+ *
+ * @method getBearerToken
+ * @return {String} The bearer token
+ */
+HTTPPeer.prototype.getBearerToken = function() {
+    return this.encodedToken;
+};
+
+module.exports = {
+    DeviceJSPeer: HTTPPeer
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
