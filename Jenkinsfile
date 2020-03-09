@@ -80,6 +80,18 @@ pipeline {
         }
       }
     }
+    
+    stage('Publish Docs'){
+      agent{
+        label 'noi-linux-ubuntu16-ci-slave'
+      }
+      steps{
+        withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
+          sh "echo ${JENKINS_PASSWORD} | sudo -S npm -g install gh-pages"
+          sh 'gh-pages --dist docs/ --user "edge-ci edge-ci@arm.com"'
+        }
+      }
+    }
   }
   
   post{
