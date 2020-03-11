@@ -61,7 +61,8 @@ pipeline {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
               withSonarQubeEnv('sonarqube') {
                 //sh 'id -un'
-                sh "${scannerHome}/bin/sonar-scanner"
+                checkout scm
+                sh "cd $JENKINS_HOME/workspace/devicejs_${env.BRANCH_NAME} && ${scannerHome}/bin/sonar-scanner"
               }
             }
           }
