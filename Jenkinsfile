@@ -67,7 +67,7 @@ pipeline {
                   unstash 'sonar-coverage'
                   sh "cd $JENKINS_HOME/workspace/devicejs_${env.BRANCH_NAME} && ${scannerHome}/bin/sonar-scanner"
                 }
-               }
+              }
             }
           }
         }
@@ -116,5 +116,5 @@ pipeline {
         //archiveArtifacts artifacts: 'devicedb_docs.md'
       }
     }
- }
+  }
 }
