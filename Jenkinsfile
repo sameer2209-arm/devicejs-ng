@@ -61,10 +61,12 @@ pipeline {
           steps {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
               withSonarQubeEnv('sonarqube') {
-                //sh 'id -un'
-                checkout scm
-                sh "cd $JENKINS_HOME/workspace/devicejs_${env.BRANCH_NAME} && ${scannerHome}/bin/sonar-scanner"
-              }
+                withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
+                  checkout scm
+                  sh "sshpass -p ${JENKINS_PASSWORD} scp -r /home/jenkins/workspace/devicejs_${env.BRANCH_NAME}/coverage /var/jenkins_home/workspace/devicejs_${env.BRANCH_NAME}/"
+                  sh "cd $JENKINS_HOME/workspace/devicejs_${env.BRANCH_NAME} && ${scannerHome}/bin/sonar-scanner"
+                }
+               }
             }
           }
         }
