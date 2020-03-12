@@ -5,8 +5,8 @@ pipeline {
   }
   stages {
     stage('Environment setup'){
-    agent{
-        label 'noi-linux-ubuntu16-ci-slave'
+      agent{
+         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps{
         withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
@@ -35,8 +35,8 @@ pipeline {
       }
     }
     
-    //stage('Test and Code Review') {
-      //parallel {
+    stage('Test and Code Review') {
+      parallel {
         stage('Test'){
           agent{
             label 'noi-linux-ubuntu16-ci-slave'
@@ -71,8 +71,8 @@ pipeline {
             }
           }
         }
-      }//
-    }//
+      }
+    }
     
     stage('Auto Doc') {
       agent{
