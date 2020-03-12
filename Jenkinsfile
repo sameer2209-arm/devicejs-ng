@@ -35,8 +35,8 @@ pipeline {
       }
     }
     
-    stage('Test and Code Review') {
-      parallel {
+    //stage('Test and Code Review') {
+      //parallel {
         stage('Test'){
           agent{
             label 'noi-linux-ubuntu16-ci-slave'
@@ -71,8 +71,8 @@ pipeline {
             }
           }
         }
-      }
-    }
+      }//
+    }//
     
     stage('Auto Doc') {
       agent{
