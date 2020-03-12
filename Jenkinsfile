@@ -47,8 +47,8 @@ pipeline {
               sh 'npm install nyc'
               sh 'npm install mocha-junit-reporter --save-dev'
               sh './node_modules/nyc/bin/nyc.js -a --reporter "cobertura" --reporter "lcovonly" ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
-              stash includes: 'coverage/lcov.info', name: 'sonar-coverage'
             }
+            stash includes: 'coverage/lcov.info', name: 'sonar-coverage'
           }
         }
         
