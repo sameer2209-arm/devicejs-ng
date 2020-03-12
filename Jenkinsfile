@@ -47,6 +47,7 @@ pipeline {
               sh 'npm install nyc'
               sh 'npm install mocha-junit-reporter --save-dev'
               sh './node_modules/nyc/bin/nyc.js -a --reporter "cobertura" --reporter "lcovonly" ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
+              stash includes: 'coverage/lcov.info', name: 'sonar-coverage'
             }
           }
         }
@@ -63,7 +64,7 @@ pipeline {
               withSonarQubeEnv('sonarqube') {
                 withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
                   checkout scm
-                  sh "sshpass -p ${JENKINS_PASSWORD} scp -r /home/jenkins/workspace/devicejs_${env.BRANCH_NAME}/coverage /var/jenkins_home/workspace/devicejs_${env.BRANCH_NAME}/"
+                  unstash 'sonar-coverage'
                   sh "cd $JENKINS_HOME/workspace/devicejs_${env.BRANCH_NAME} && ${scannerHome}/bin/sonar-scanner"
                 }
                }
