@@ -46,7 +46,7 @@ pipeline {
               sh 'npm install'
               sh 'npm install nyc'
               sh 'npm install mocha-junit-reporter --save-dev'
-              sh './node_modules/nyc/bin/nyc.js -a --reporter "cobertura" ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
+              sh './node_modules/nyc/bin/nyc.js -a --reporter "cobertura" --reporter "lcovonly" ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter'
             }
           }
         }
@@ -109,7 +109,7 @@ pipeline {
     always{
       node('noi-linux-ubuntu16-ci-slave'){
         junit 'test-results.xml'
-        //step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+        step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'coverage/cobertura-coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
         //archiveArtifacts artifacts: 'devicedb_docs.md'
       }
     }
