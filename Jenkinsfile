@@ -3,14 +3,14 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 projectName = 'DeviceJS'
-branchName = "${env.BRANCH_NAME}"
+branchName = "${env.GIT_BRANCH}"
 
-def notifySlack(String buildStatus = 'STARTED') {
+def notifySlack(String buildStatus = 'UNSTABLE') {
 	branchName = "$env.GIT_BRANCH"
     buildStatus = buildStatus ?: 'SUCCESSFUL' 
     def colorCode = '#FF0000' 
  
-    if (buildStatus == 'STARTED') { 
+    if (buildStatus == 'UNSTABLE') { 
         //colorName = 'YELLOW' 
         colorCode = '#FFFF00' 
     } else if (buildStatus == 'SUCCESS') { 
@@ -54,7 +54,7 @@ def notifySlack(String buildStatus = 'STARTED') {
     // Put fields JSONArray 
     detailsAttachment.put('pretext',"Ran DeviceJS CI pipeline on Jenkins"); 
     detailsAttachment.put('title',"Sonarqube Dashboard");
-    detailsAttachment.put('title_link',"http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3A${env.BRANCH_NAME}"); 
+    detailsAttachment.put('title_link',"http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3A${env.BRANCH_NAME}.toString()"); 
     //detailsAttachment.put('author_name',"LAVA Job");
     //detailsAttachment.put('author_link',"http://lava.mbedcloudtesting.com/scheduler/alljobs");
     detailsAttachment.put('text',"Click to view Sonarqube Dashboard");
