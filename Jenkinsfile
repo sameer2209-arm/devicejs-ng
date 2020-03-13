@@ -42,7 +42,7 @@ pipeline {
             label 'noi-linux-ubuntu16-ci-slave'
           }
           steps {
-            catchError{
+            catchError(buildResult: 'SUCCESS'){
               sh 'npm install'
               sh 'npm install nyc'
               sh 'npm install mocha-junit-reporter --save-dev'
