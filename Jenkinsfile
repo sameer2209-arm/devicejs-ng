@@ -91,10 +91,8 @@ pipeline {
         label 'noi-linux-ubuntu16-ci-slave'
       }
       steps{
-        withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
-          sh "echo ${JENKINS_PASSWORD} | sudo -S npm -g install gh-pages"
-          sh "echo ${JENKINS_PASSWORD} | sudo -S gh-pages --dist docs/ --user \"edge-ci <edge-ci@arm.com>\""
-        }
+         sh 'npm install gh-pages'
+         sh './node_modules/gh-pages/bin/gh-pages.js --dist docs/ --user "edge-ci <edge-ci@arm.com>"'
       }
     }
   }
