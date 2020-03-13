@@ -1,3 +1,76 @@
+import hudson.Util;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+projectName = 'DeviceJS'
+branchName = "${env.BRANCH_NAME}"
+
+def notifySlack(String buildStatus = 'STARTED') {
+	branchName = "$env.GIT_BRANCH"
+    buildStatus = buildStatus ?: 'SUCCESSFUL' 
+    def colorCode = '#FF0000' 
+ 
+    if (buildStatus == 'STARTED') { 
+        //colorName = 'YELLOW' 
+        colorCode = '#FFFF00' 
+    } else if (buildStatus == 'SUCCESS') { 
+        //colorName = 'GREEN' 
+        colorCode = '#00FF00' 
+    } else { 
+        //colorName = 'RED' 
+        colorCode = '#FF0000' 
+    } 
+ 
+    def mainText = '*Name -> <' + env.RUN_DISPLAY_URL + '|' + projectName.toString()*'
+ 
+    JSONArray attachments = new JSONArray();
+    JSONObject detailsAttachment = new JSONObject(); 
+
+ 
+    // Create details field for attachment.  
+    JSONArray fields = new JSONArray(); 
+    JSONObject fieldsObject = new JSONObject(); 
+
+    JSONObject branch = new JSONObject();
+    fieldsObject.put('title', 'Branch');
+    fieldsObject.put('value', branchName.toString());
+    fieldsObject.put('short', true);
+
+    fields.add(fieldsObject); 
+
+    fieldsObject.put('title','Status'); 
+    fieldsObject.put('value',buildStatus.toString()); 
+    fieldsObject.put('short',true); 
+    
+    fields.add(fieldsObject); 
+    
+    fieldsObject = new JSONObject(); 
+    fieldsObject.put('title','Job ID'); 
+    fieldsObject.put('value','#' + env.BUILD_NUMBER.toString()); 
+    fieldsObject.put('short',true); 
+    
+    fields.add(fieldsObject); 
+    
+    // Put fields JSONArray 
+    detailsAttachment.put('pretext',"Ran DeviceJS CI pipeline on Jenkins"); 
+    detailsAttachment.put('title',"Sonarqube Dashboard");
+    detailsAttachment.put('title_link',"http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3A${env.BRANCH_NAME}"); 
+    //detailsAttachment.put('author_name',"LAVA Job");
+    //detailsAttachment.put('author_link',"http://lava.mbedcloudtesting.com/scheduler/alljobs");
+    detailsAttachment.put('text',"Click to view Sonarqube Dashboard");
+    detailsAttachment.put('fields',fields); 
+    detailsAttachment.put('color', colorCode.toString());
+    detailsAttachment.put('footer','After ' + Util.getTimeSpanString(System.currentTimeMillis() - currentBuild.startTimeInMillis)) 
+    
+    attachments.add(detailsAttachment); 
+
+    print detailsAttachment
+    
+    // Send notifications 
+    slackSend (message: mainText.toString(), attachments: attachments.toString()) 
+    
+}
+
 pipeline {
   agent none
   options{
@@ -98,20 +171,11 @@ pipeline {
   }
   
   post{
-    /*success{
-      //slackSend(channel: '#edge-jenkins-ci', color: 'good', message: "JOB NAME: ${env.JOB_NAME}\nBUILD NUMBER: ${env.BUILD_NUMBER}\nSTATUS: ${currentBuild.currentResult}\n${env.RUN_DISPLAY_URL}")
-    }
-    failure{
-      //slackSend(channel: '#edge-jenkins-ci', color: 'danger', message: "JOB NAME: ${env.JOB_NAME}\nBUILD NUMBER: ${env.BUILD_NUMBER}\nSTATUS: ${currentBuild.currentResult}\n${env.RUN_DISPLAY_URL}")
-    }
-    unstable{
-      //slackSend(channel: '#edge-jenkins-ci', color: 'warning', message: "JOB NAME: ${env.JOB_NAME}\nBUILD NUMBER: ${env.BUILD_NUMBER}\nSTATUS: ${currentBuild.currentResult}\n${env.RUN_DISPLAY_URL}")
-    }*/
     always{
       node('noi-linux-ubuntu16-ci-slave'){
         junit 'test-results.xml'
         step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'coverage/cobertura-coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
-        //archiveArtifacts artifacts: 'devicedb_docs.md'
+        notifySlack("${currentBuild.currentResult}")
       }
     }
   }
