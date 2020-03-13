@@ -3,10 +3,11 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 projectName = 'DeviceJS'
-branchName = "${env.GIT_BRANCH}"
+//branchName = "${env.GIT_BRANCH}"
 
 def notifySlack(String buildStatus = 'UNSTABLE') {
-	branchName = "$env.GIT_BRANCH"
+    branchName = "${env.BRANCH_NAME}"
+    print branchName
     buildStatus = buildStatus ?: 'SUCCESSFUL' 
     def colorCode = '#FF0000' 
  
@@ -54,7 +55,7 @@ def notifySlack(String buildStatus = 'UNSTABLE') {
     // Put fields JSONArray 
     detailsAttachment.put('pretext',"Ran DeviceJS CI pipeline on Jenkins"); 
     detailsAttachment.put('title',"Sonarqube Dashboard");
-    detailsAttachment.put('title_link',"http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3A${env.BRANCH_NAME}.toString()"); 
+    detailsAttachment.put('title_link','http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3\"${branchName}\"'); 
     //detailsAttachment.put('author_name',"LAVA Job");
     //detailsAttachment.put('author_link',"http://lava.mbedcloudtesting.com/scheduler/alljobs");
     detailsAttachment.put('text',"Click to view Sonarqube Dashboard");
