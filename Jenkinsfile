@@ -21,7 +21,7 @@ def notifySlack(String buildStatus = 'STARTED') {
         colorCode = '#FF0000' 
     } 
  
-    def mainText = '*Name -> <' + env.RUN_DISPLAY_URL + '|' + projectName.toString()'
+    def mainText = '*Name -> <' + env.RUN_DISPLAY_URL + '|' + projectName.toString() + '>*'
  
     JSONArray attachments = new JSONArray();
     JSONObject detailsAttachment = new JSONObject(); 
