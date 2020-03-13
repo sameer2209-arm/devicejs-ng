@@ -38,6 +38,7 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AsyncMutex.html">AsyncMutex</a></li>
                                 <li><a href="../classes/DeviceJSPeer.html">DeviceJSPeer</a></li>
                                 <li><a href="../classes/ResourceSelection.html">ResourceSelection</a></li>
                             </ul>
@@ -81,6 +82,23 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+/*
+ * Copyright (c) 2018, Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var EventEmitter = require(&#x27;events&#x27;).EventEmitter;
 var uuid = require(&#x27;node-uuid&#x27;);
 var selections = require(&#x27;./selection&#x27;);
@@ -1208,6 +1226,20 @@ HTTPPeer.prototype.listResources = function(selection) {
     });
 };
 
+HTTPPeer.prototype.alert = function(name, level, status, metadata) {
+    if(ddb &amp;&amp; ddb.alerts) {
+        if(status) {
+            return ddb.alerts.raiseAlert(name, level, metadata)
+        }
+        else {
+            return ddb.alerts.lowerAlert(name, level, metadata)
+        }
+    }
+    else {
+        return Promise.reject(&#x27;No ddb object initialized&#x27;)
+    }
+};
+
 /**
  * Returns a hierarchy of groups and the resources
  * contained within them
@@ -1288,6 +1320,20 @@ HTTPPeer.prototype.getResourceGroup = function(groupName) {
 
     return this.sendHTTPGet(&#x27;/group?group=&#x27;+groupName);
 };
+
+HTTPPeer.prototype.updateResourceGraph = function(updates) {
+    return this.sendHTTPPost(&#x27;/graphUpdates&#x27;, updates)
+};
+
+HTTPPeer.prototype.queryResourceGraph = function(resources) {
+    let query = &#x27;?&#x27;
+    
+    for(let resource of resources) {
+        query += &#x27;node=&#x27; + encodeURIComponent(resource) + &#x27;&amp;&#x27;
+    }
+
+    return this.sendHTTPGet(&#x27;/graph&#x27; + query)
+}
 
 /**
  * A convenience method for creating a new
@@ -2113,12 +2159,33 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
         this._peer.publishResourceEvent(this._resourceID, eventName, eventData);
     };
 
+    // re-attempts resource registration until it is successful
+    ResourceControllerType.prototype._registerResource = function() {
+        var self = this;
+
+        return new Promise(function(resolve, reject) {
+            function tryAgain() {
+                self._peer.registerResource(self._resourceID, resourceType).then(resolve).catch(function(error) {
+                    console.error(&#x27;Error: ResourceController#start %s %s while attempting to register resource. Will retry in 5 seconds: &#x27;, self._resourceID, resourceType, error)
+
+                    setTimeout(tryAgain, 5000)
+                })
+            }
+
+            tryAgain()
+        })
+    };
+
     ResourceControllerType.prototype.start = function(options) {
         var self = this;
         var resourceID = this._resourceID;
 
-        return self._peer.registerResource(self._resourceID, resourceType).then(function() {
-            self._peer.on(&#x27;command&#x27;, function(command, argumentList, resourceSet, commandID, selectionString) {
+        return self._registerResource().then(function() {
+            self._peer.removeListener(&#x27;command&#x27;, self._onCommand || function() { })
+            self._peer.removeListener(&#x27;state set&#x27;, self._onStateSet || function() { })
+            self._peer.removeListener(&#x27;state get&#x27;, self._onStateGet || function() { })
+            
+            self._onCommand = function(command, argumentList, resourceSet, commandID, selectionString) {
                 if(resourceSet.indexOf(self._resourceID) == -1) {
                     // ignore. this command is not bound for us
                     return;
@@ -2144,7 +2211,9 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
                 }, function(error) {
                     self._peer.respondToCommand(commandID, self._resourceID, { result: null, error: &#x27;Error: &#x27; + error });
                 });
-            }).on(&#x27;state set&#x27;, function(property, value, resourceSet, commandID, selectionString) {
+            }
+            
+            self._onStateSet = function(property, value, resourceSet, commandID, selectionString) {
                 if(resourceSet.indexOf(self._resourceID) == -1) {
                     // ignore. this command is not bound for us
                     return;
@@ -2175,7 +2244,9 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
                 }, function(error) {
                     self._peer.respondToCommand(commandID, self._resourceID, { result: null, error: &#x27;Error: &#x27; + error });
                 });
-            }).on(&#x27;state get&#x27;, function(property, resourceSet, commandID, selectionString) {
+            }
+            
+            self._onStateGet = function(property, resourceSet, commandID, selectionString) {
                 if(resourceSet.indexOf(self._resourceID) == -1) {
                     // ignore. this command is not bound for us
                     return;
@@ -2206,7 +2277,12 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
                 }, function(error) {
                     self._peer.respondToCommand(commandID, self._resourceID, { result: null, error: &#x27;Error: &#x27; + error });
                 });
-            });
+            }
+            
+            self._peer
+                .on(&#x27;command&#x27;, self._onCommand)
+                .on(&#x27;state set&#x27;, self._onStateSet)
+                .on(&#x27;state get&#x27;, self._onStateGet);
 
             return new Promise(function(resolve, reject) {
                 resolve(self._apiStart(options));
@@ -2218,6 +2294,10 @@ var ResourceController = function(resourceType, api, defaultDJSPeer) {
         return new Promise(function(resolve, reject) {
             resolve(this._apiStop());
         }.bind(this)).then(function() {
+            this._peer.removeListener(&#x27;command&#x27;, this._onCommand || function() { })
+            this._peer.removeListener(&#x27;state set&#x27;, this._onStateSet || function() { })
+            this._peer.removeListener(&#x27;state get&#x27;, this._onStateGet || function() { })
+            
             return this._peer.unregisterResource(this._resourceID);
         }.bind(this));
     };

@@ -5,6 +5,15 @@
         "version": "0.1.0"
     },
     "files": {
+        "src/core/asyncLockMap.js": {
+            "name": "src/core/asyncLockMap.js",
+            "modules": {},
+            "classes": {
+                "AsyncMutex": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/core/httpPeer.js": {
             "name": "src/core/httpPeer.js",
             "modules": {},
@@ -25,6 +34,19 @@
     },
     "modules": {},
     "classes": {
+        "AsyncMutex": {
+            "name": "AsyncMutex",
+            "shortname": "AsyncMutex",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/core/asyncLockMap.js",
+            "line": 20,
+            "description": "An asynchronous analog to a mutex\nin multithreaded programming. This is\nused to coordinate access to a series\nof asynchronous callbacks or chained\npromises. In asynchronous programming\nthe same chain of promises executed\ntwice can become intermixed during \nexecution such that the sequence of\nthe first effectively happens in parallel\nwith the second.",
+            "is_constructor": 1
+        },
         "DeviceJSPeer": {
             "name": "DeviceJSPeer",
             "shortname": "DeviceJSPeer",
@@ -34,7 +56,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/core/peer.js",
-            "line": 57,
+            "line": 74,
             "description": "A DeviceJS peer",
             "is_constructor": 1,
             "params": [
@@ -59,7 +81,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/core/peer.js",
-            "line": 1369,
+            "line": 1414,
             "description": "A resource selection object builds all its functionality\non the APIs provided by the DeviceJSPeer object that\nit is tied to. A resource selection represents some\nselection or set of resources which are to be monitored or\nmanipulated. It is a more convenient interface than\nthe raw API provided by DeviceJSPeer for performing these\ntasks and is the primary method by which user code should\noperate. Keep in mind that this object should be created\nthrough the dev$.select functions and not by invoking\nits constructor directly",
             "is_constructor": 1,
             "params": [
@@ -79,8 +101,34 @@
     "elements": {},
     "classitems": [
         {
+            "file": "src/core/asyncLockMap.js",
+            "line": 59,
+            "description": "This method returns a promise that resolves\nas soon as all other callers of acquire()\nhave invoked release(). When the promise\nresolves, you can access to critical section\nor protected resource",
+            "itemtype": "method",
+            "name": "acquire",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "AsyncMutex"
+        },
+        {
+            "file": "src/core/asyncLockMap.js",
+            "line": 83,
+            "description": "This method indicates that you are done\nwith the critical section and will give\ncontrol to the next caller to acquire()",
+            "itemtype": "method",
+            "name": "release",
+            "class": "AsyncMutex"
+        },
+        {
+            "file": "src/core/asyncLockMap.js",
+            "line": 101,
+            "description": "This method returns the length of the\nnumber of threads waiting to acquire\nthis lock",
+            "class": "AsyncMutex"
+        },
+        {
             "file": "src/core/httpPeer.js",
-            "line": 42,
+            "line": 59,
             "description": "Indicates that some peer has sent some sort of command to a resource\nthat is registered with this peer",
             "itemtype": "event",
             "name": "command",
@@ -122,7 +170,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 56,
+            "line": 73,
             "description": "Indicates that some peer has sent a request to set the state of this\nresource",
             "itemtype": "event",
             "name": "state set",
@@ -163,7 +211,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 70,
+            "line": 87,
             "description": "Indicates that some peer has sent a request to get the state of this\nresource",
             "itemtype": "event",
             "name": "state get",
@@ -200,7 +248,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 83,
+            "line": 100,
             "description": "Indicates a state change has been published from some resource\nwhose events this peer has subscribed to.",
             "itemtype": "event",
             "name": "state change",
@@ -239,7 +287,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 96,
+            "line": 113,
             "description": "Indicates that a connection error occurred with the server",
             "itemtype": "event",
             "name": "error",
@@ -253,7 +301,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 103,
+            "line": 120,
             "description": "The peer has a connection to the server",
             "itemtype": "event",
             "name": "connect",
@@ -261,7 +309,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 109,
+            "line": 126,
             "description": "The peer has been disconnected from the server",
             "itemtype": "event",
             "name": "disconnect",
@@ -269,7 +317,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 123,
+            "line": 140,
             "description": "Connect to the DeviceJS server and set up peer",
             "itemtype": "method",
             "name": "connect",
@@ -284,7 +332,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 203,
+            "line": 220,
             "description": "Disconnect from the DeviceJS server. This object will\nemit no further events. connect must be called again in order\nto make requests to the server.",
             "itemtype": "method",
             "name": "disconnect",
@@ -299,7 +347,7 @@
         },
         {
             "file": "src/core/httpPeer.js",
-            "line": 346,
+            "line": 363,
             "description": "NodeJS only. Returns the bearer token used by this client.\nThis is used by the browser->nodejs proxy application",
             "itemtype": "method",
             "name": "getBearerToken",
@@ -311,7 +359,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 132,
+            "line": 149,
             "description": "Indicates that some peer has sent some sort of command to a resource\nthat is registered with this peer",
             "itemtype": "event",
             "name": "command",
@@ -353,7 +401,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 146,
+            "line": 163,
             "description": "Indicates that some peer has sent a request to set the state of this\nresource",
             "itemtype": "event",
             "name": "state set",
@@ -394,7 +442,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 160,
+            "line": 177,
             "description": "Indicates that some peer has sent a request to get the state of this\nresource",
             "itemtype": "event",
             "name": "state get",
@@ -431,7 +479,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 173,
+            "line": 190,
             "description": "Indicates a state change has been published from some resource\nwhose events this peer has subscribed to.",
             "itemtype": "event",
             "name": "state change",
@@ -470,7 +518,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 186,
+            "line": 203,
             "description": "Indicates that a connection error occurred with the server",
             "itemtype": "event",
             "name": "error",
@@ -484,7 +532,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 193,
+            "line": 210,
             "description": "The peer has a connection to the server",
             "itemtype": "event",
             "name": "connect",
@@ -492,7 +540,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 199,
+            "line": 216,
             "description": "The peer has been disconnected from the server",
             "itemtype": "event",
             "name": "disconnect",
@@ -500,7 +548,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 207,
+            "line": 224,
             "description": "Connect to the DeviceJS server and set up peer",
             "itemtype": "method",
             "name": "connect",
@@ -512,7 +560,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 218,
+            "line": 235,
             "description": "Disconnect from the DeviceJS server. This object will\nemit no further events. connect must be called again in order\nto make requests to the server.",
             "itemtype": "method",
             "name": "disconnect",
@@ -524,7 +572,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 247,
+            "line": 264,
             "description": "Returns the URL of the server that this peer is connected\nto",
             "itemtype": "method",
             "name": "getServerAddress",
@@ -539,7 +587,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 266,
+            "line": 283,
             "description": "Add a new resource schema type to the DeviceJS server",
             "itemtype": "method",
             "name": "addResourceType",
@@ -561,7 +609,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 313,
+            "line": 330,
             "description": "Add a new interface schema type to the DeviceJS server",
             "itemtype": "method",
             "name": "addInterfaceType",
@@ -583,7 +631,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 354,
+            "line": 371,
             "description": "Lists all the resource type schemas",
             "itemtype": "method",
             "name": "listResourceTypes",
@@ -598,7 +646,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 409,
+            "line": 426,
             "description": "Lists all the interface type schemas",
             "itemtype": "method",
             "name": "listInterfaceTypes",
@@ -613,7 +661,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 501,
+            "line": 518,
             "description": "Register a resource with this peer. After registering with\na resource, this peer is sent all control messages and\nrequests for that resource.",
             "itemtype": "method",
             "name": "registerResource",
@@ -628,7 +676,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 523,
+            "line": 540,
             "description": "List the versions of all the installed modules as well as\nthe version of DeviceJS that is running on the server.",
             "itemtype": "method",
             "name": "getVersions",
@@ -640,7 +688,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 534,
+            "line": 551,
             "description": "Lists the status of all installed modules on the server\nincluding their version and enabled/disabled state",
             "itemtype": "method",
             "name": "getModules",
@@ -652,7 +700,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 545,
+            "line": 562,
             "description": "Unregister a resource with this peer. The peer will no longer\nreceive control messages related to this resource",
             "itemtype": "method",
             "name": "unregisterResource",
@@ -667,7 +715,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 565,
+            "line": 582,
             "description": "Forgets a resource. Normally resources are added to the index\nafter being registered for the first time. This function removes\nthe resources from the index and returns the database to a state\nwhere it has no knowledge of this resource",
             "itemtype": "method",
             "name": "forgetResource",
@@ -679,7 +727,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 588,
+            "line": 605,
             "description": "Subscribe to a certain type of event or events for a set of resources\nor a particular resource",
             "itemtype": "method",
             "name": "subscribeToResourceEvent",
@@ -711,7 +759,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 629,
+            "line": 646,
             "description": "Unsubscribe from a certain type of event or events for a set of resources\nor a particular resource",
             "itemtype": "method",
             "name": "unsubscribe",
@@ -738,7 +786,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 669,
+            "line": 686,
             "description": "Publish a resource event on behalf of a resource that is registered\nto this peer. The DeviceJS server will send this event to all\nrelevant subscribers. Special event types include 'reachable',\nand 'unreachable'. Emit these to indicate when a resource is reachable\nor unreachable, for example when losing connectivity to a resource",
             "itemtype": "method",
             "name": "publishResourceEvent",
@@ -769,7 +817,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 699,
+            "line": 716,
             "description": "Resources can be organized into a hierarchy of groups\nsimilar to a directory structure. This creates a resource\ngroup of a certain name. Resource group names are a\nseries of strings delimited by forward slashes. Ex:\n  a, a/b/c\nCreating a resource group with parent groups that do\nnot yet exist implicitly creates those parent groups.\nCreating a group that already exists has no effect",
             "itemtype": "method",
             "name": "createResourceGroup",
@@ -791,7 +839,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 756,
+            "line": 773,
             "description": "Deleting a resource group removes all resources from\nthat group and recursively deletes all its children",
             "itemtype": "method",
             "name": "deleteResourceGroup",
@@ -813,7 +861,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 826,
+            "line": 843,
             "description": "Joining a resource to a resource group means\nthat this resource is controllable by sending\nrequests to that resource group and that any\nevents emitted by that resource will be emitted\nto subscribers to this resource group",
             "itemtype": "method",
             "name": "joinResourceGroup",
@@ -840,7 +888,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 870,
+            "line": 887,
             "description": "Unjoins a resource from a resource group.",
             "itemtype": "method",
             "name": "leaveResourceGroup",
@@ -867,7 +915,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 921,
+            "line": 938,
             "description": "Sends a command to the set of resources specified\nby the selection type and selection.",
             "itemtype": "method",
             "name": "sendResourceCommand",
@@ -899,7 +947,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 949,
+            "line": 966,
             "description": "This peer is subscribed to changes in resource state\npublished by resources in the specified set",
             "itemtype": "method",
             "name": "subscribeToResourceState",
@@ -931,7 +979,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 986,
+            "line": 1003,
             "description": "Publish a resource state change event on behalf of\na resource that is registered to this peer",
             "itemtype": "method",
             "name": "publishResourceStateChange",
@@ -963,7 +1011,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1011,
+            "line": 1028,
             "description": "Send a request to a set of resources to set some\nproperty to a new value",
             "itemtype": "method",
             "name": "setResourceState",
@@ -995,7 +1043,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1036,
+            "line": 1053,
             "description": "Send a request to a get of resources to get the state\nof some property.",
             "itemtype": "method",
             "name": "getResourceState",
@@ -1022,7 +1070,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1060,
+            "line": 1077,
             "description": "After receiving a command event, a state set event,\nor a state get event the peer must response on behalf\nof a given resource once that resource has fulfilled\nthe request.",
             "itemtype": "method",
             "name": "responseToCommand",
@@ -1053,7 +1101,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1087,
+            "line": 1104,
             "description": "Enumerates the resources associated with a certain selection",
             "itemtype": "method",
             "name": "listResources",
@@ -1075,7 +1123,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1128,
+            "line": 1159,
             "description": "Returns a hierarchy of groups and the resources\ncontained within them",
             "itemtype": "method",
             "name": "getResourceGroup",
@@ -1097,7 +1145,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1209,
+            "line": 1254,
             "description": "A convenience method for creating a new\nResourceController constructor",
             "itemtype": "method",
             "name": "resource",
@@ -1124,7 +1172,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1281,
+            "line": 1326,
             "description": "A convenience method for generating new uuids",
             "itemtype": "method",
             "name": "uuid",
@@ -1136,7 +1184,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1291,
+            "line": 1336,
             "description": "A convenience method for generating a new\nResourceSelection by resource ID",
             "itemtype": "method",
             "name": "selectByID",
@@ -1155,7 +1203,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1303,
+            "line": 1348,
             "description": "A convenience method for generating a new\nResourceSelection by resource interface",
             "itemtype": "method",
             "name": "selectByInterface",
@@ -1174,7 +1222,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1315,
+            "line": 1360,
             "description": "A convenience method for generating a new\nResourceSelection by resource type",
             "itemtype": "method",
             "name": "selectByType",
@@ -1193,7 +1241,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1327,
+            "line": 1372,
             "description": "A convenience method for generating a new\nResourceSelection by resource group",
             "itemtype": "method",
             "name": "selectByGroup",
@@ -1212,7 +1260,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1339,
+            "line": 1384,
             "description": "Generate a new ResourceSelection\nby selection string",
             "itemtype": "method",
             "name": "select",
@@ -1234,7 +1282,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1528,
+            "line": 1573,
             "description": "This is fired when a resource in this selection\npublishes a state change",
             "itemtype": "event",
             "name": "state",
@@ -1258,7 +1306,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1538,
+            "line": 1583,
             "description": "This is fired when a resource in this selection\npublishes an event",
             "itemtype": "event",
             "name": "event",
@@ -1282,7 +1330,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1548,
+            "line": 1593,
             "description": "This is fired when a resource in this selection\nis discovered",
             "itemtype": "event",
             "name": "discover",
@@ -1302,7 +1350,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1557,
+            "line": 1602,
             "description": "This method wraps the subscribeToResourceEvent method\ndefined by DeviceJSPeer",
             "itemtype": "method",
             "name": "subscribeToEvent",
@@ -1324,7 +1372,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1579,
+            "line": 1624,
             "description": "This method wraps the subscribeToResourceState method\ndefined by DeviceJSPeer",
             "itemtype": "method",
             "name": "subscribeToState",
@@ -1346,7 +1394,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1599,
+            "line": 1644,
             "description": "This method wraps the unsubscribe method\ndefined by DeviceJSPeer",
             "itemtype": "method",
             "name": "unsubscribe",
@@ -1368,7 +1416,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1626,
+            "line": 1671,
             "description": "This method wraps the listResources method\ndefined by DeviceJSPeer. It lists all the resources\nin this resource selection.",
             "itemtype": "method",
             "name": "listResources",
@@ -1383,7 +1431,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1653,
+            "line": 1698,
             "description": "This initiates the discovery process for resources\nmatching this selection set. If any resources are\nalready registered matching this selection then those\nwill be discovered. After that, any new resource\njoining this set will be discovered.",
             "itemtype": "method",
             "name": "discover",
@@ -1402,7 +1450,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1716,
+            "line": 1761,
             "description": "Stops the discovery process",
             "itemtype": "method",
             "name": "stopDiscovering",
@@ -1413,7 +1461,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1738,
+            "line": 1783,
             "description": "Execute a certain command. All parameters\nafter the first parameter are considered\ncommand arguments and are passed to the command\nas an array.",
             "itemtype": "method",
             "name": "call",
@@ -1435,7 +1483,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1768,
+            "line": 1813,
             "description": "Set a property of all resources in\nthis resource selection to some value",
             "itemtype": "method",
             "name": "set",
@@ -1461,7 +1509,7 @@
         },
         {
             "file": "src/core/peer.js",
-            "line": 1795,
+            "line": 1840,
             "description": "Get a property of all resources in\nthis resource selection",
             "itemtype": "method",
             "name": "get",
@@ -1482,5 +1530,10 @@
             "class": "ResourceSelection"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "Missing item type\nThis method returns the length of the\nnumber of threads waiting to acquire\nthis lock",
+            "line": " src/core/asyncLockMap.js:101"
+        }
+    ]
 }
