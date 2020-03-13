@@ -55,7 +55,7 @@ def notifySlack(String buildStatus = 'UNSTABLE') {
     // Put fields JSONArray 
     detailsAttachment.put('pretext',"Ran DeviceJS CI pipeline on Jenkins"); 
     detailsAttachment.put('title',"Sonarqube Dashboard");
-    detailsAttachment.put('title_link','http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3\"${branchName}\"'); 
+    detailsAttachment.put('title_link',"http://pe-jm.usa.arm.com:9000/dashboard?id=edge%3Adevicejs%3A"+"${branchName}"); 
     //detailsAttachment.put('author_name',"LAVA Job");
     //detailsAttachment.put('author_link',"http://lava.mbedcloudtesting.com/scheduler/alljobs");
     detailsAttachment.put('text',"Click to view Sonarqube Dashboard");
