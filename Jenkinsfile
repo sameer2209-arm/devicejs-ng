@@ -82,6 +82,9 @@ pipeline {
       agent{
          label 'noi-linux-ubuntu16-ci-slave'
       }
+      options{
+         lock resource: 'noi-linux-ubuntu16-ci-slave'
+      }
       steps{
         withCredentials([usernamePassword(credentialsId: 'noida_slave_password', passwordVariable: 'JENKINS_PASSWORD', usernameVariable: 'JENKINS_USERNAME')]) {
           sh "curl -sL https://deb.nodesource.com/setup_12.x | echo ${JENKINS_PASSWORD} | sudo -SE bash -"
@@ -115,6 +118,9 @@ pipeline {
           agent{
             label 'noi-linux-ubuntu16-ci-slave'
           }
+          options{
+            lock resource: 'noi-linux-ubuntu16-ci-slave'
+          }
           steps {
             catchError(buildResult: 'SUCCESS'){
               sh 'npm install'
@@ -129,6 +135,9 @@ pipeline {
         stage('SonarQube'){
           agent{
             label 'master'
+          }
+          options{
+            lock resource: 'master'
           }
           environment {
             scannerHome = tool 'SonarQubeScanner'
